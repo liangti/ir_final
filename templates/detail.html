@@ -1,0 +1,48 @@
+    <html>
+  <head>
+  <style>
+  em{
+    background-color: yellow
+    }</style> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Detail</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  </head>
+ 
+  <body>
+      <table class="table table-bordered result">
+  <caption>{{result[0]}}</caption>
+  <thead>
+    <tr>
+      <th>language</th>	
+      <th>country</th>
+      <th>director</th>
+      <th>location</th>
+      <th>starring</th>
+      <th>time</th>
+      <th>runtime</th>
+      <th>categories</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{result[2]}}</td>
+      <td>{{result[3]}}</td>
+      <td>{{result[4]}}</td>
+      <td>{{result[5]}}</td>
+      <td>{{result[6]}}</td>
+      <td>{{result[7]}}</td>
+      <td>{{result[8]}}</td>
+      <td>{% for i in result[9] %}
+      <p>{{i}}</p>
+		{% endfor %}
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+<p class="text-info text-left result">{{result[10]|safe}}</p>
+  </body>
+</html>
