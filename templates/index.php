@@ -221,6 +221,7 @@
        </div>
 
 <section id="footer">
+<!--   <p>Some text some text some text some text..</p>
   <p>Some text some text some text some text..</p>
   <p>Some text some text some text some text..</p>
   <p>Some text some text some text some text..</p>
@@ -239,8 +240,7 @@
   <p>Some text some text some text some text..</p>
   <p>Some text some text some text some text..</p>
   <p>Some text some text some text some text..</p>
-  <p>Some text some text some text some text..</p>
-  <p>Some text some text some text some text..</p>
+  <p>Some text some text some text some text..</p> -->
   <span class="copyright" dir="ltr">© 2017 Ti Liang, Jiawen Liang, Hao Wang</span>
 </section>
 
