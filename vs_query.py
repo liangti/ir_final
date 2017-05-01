@@ -31,7 +31,7 @@ def go_detail():
 
 @app.route("/")
 def search():
-    return render_template('index.php')
+    return render_template('index.html')
 
 @app.route("/results", methods=['POST'])
 def results():
@@ -60,7 +60,7 @@ def results():
             unknown.append(q)
             unknown_flag=True
     page=[i for i in range(len(search_results)/10)]
-    return render_template('index.php',result=search_results[cur*10:(cur+1)*10], result_num=length, result_page=page[cur*10:(cur+1)*10], cur=cur, stop_flag=stop_flag,stop_word=stop,unknown_flag=unknown_flag, unknown=unknown)
+    return render_template('index.html',result=search_results[cur*10:(cur+1)*10], result_num=length, result_page=page[cur*10:(cur+1)*10], cur=cur, stop_flag=stop_flag,stop_word=stop,unknown_flag=unknown_flag, unknown=unknown)
 #     except KeyError:
 #         return '"Problem"'
     
@@ -73,7 +73,7 @@ def jump_prev():
     cur=cur_page
     page=[i for i in range(len(search_results)/10)]
     print cur_page,"prev"
-    return render_template('index.php', result=search_results[cur*10:(cur+1)*10], result_num=len(search_results), result_page=page, cur=cur)
+    return render_template('index.html', result=search_results[cur*10:(cur+1)*10], result_num=len(search_results), result_page=page, cur=cur)
     
 @app.route("/jump_next", methods=['POST'])
 def jump_next():
@@ -84,7 +84,7 @@ def jump_next():
     cur=cur_page
     print cur_page,"next"
     page=[i for i in range(len(search_results)/10)]
-    return render_template('index.php', result=search_results[cur*10:(cur+1)*10], result_num=len(search_results), result_page=page, cur=cur)
+    return render_template('index.html', result=search_results[cur*10:(cur+1)*10], result_num=len(search_results), result_page=page, cur=cur)
     
 
 if __name__ == '__main__':
