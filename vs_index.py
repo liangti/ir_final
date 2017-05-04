@@ -50,12 +50,13 @@ create_body= {
             "properties":{
                 "Title":{
                     "type":"text",
+                    "analyzer":"my_synonym"
                     
-                },
+                },        
                 "Ing_Name" :{
-                    "type":"text",
+                    "type": "nested",
                     "analyzer":"my_synonym",
-                },                
+                }               
             }
         }
 
@@ -79,11 +80,14 @@ for item in data:
     for ing in ing_list:
         ing_name.append([ing['Name'],ing['Unit'],ing['Quantity'],ing['PreparationNotes']])
     data[item]['Ing_Name']=ing_name
+    print ing_name
 
 action=[]
 for item in data:
     #print data[item]['title']
     action.append(data[item])
+    print data[item]['Title']
+    print len(action)
     if len(action)==500:
         helpers.bulk(es, action, index=corpus, doc_type="food_type", stats_only=True)
         action=[]
