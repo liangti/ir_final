@@ -8,21 +8,21 @@
     <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type = "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.1.1/typeahead.bundle.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
 		// Defining the local dataset
 		var foods = ["creamy", "peach", "pie", "cake", "mix", "butter", "eggs", "light", "peach", "slices", "cream", "cheese", "sugar", "vanilla", "extract", "dry", "rub", "pork", "shoulder", "paprika", "black", "pepper", "garlic", "powder", "onion", "powder", "cayenne", "pepper", "kosher", "salt", "brown", "sugar", "brunsviger", "sauce", "brun", "farin", "m\u00f8rk", "sirup", "melasse", "vanillestang", "salt", "fl\u00f8de", "sm\u00f8r", "baked", "crab", "rangoon", "garlic", "salt", "worcestershire", "sauce", "ton", "wrappers", "green", "onion", "imitation", "crab", "cream", "cheese", "kfc", "original", "recipe", "fried", "chicken", "crisco", "cooking", "oil", "beaten", "milk", "purpose", "flour", "salt", "black", "pepper", "accent", "flavor", "enhancer", "boneless", "chicken", "breasts", "leilas", "rocky", "road", "m\u00f6rk", "kvalitetschoklad", "70", "%", "dumlekola", "mini", "marshmallows", "salta", "jordn\u00f6tter", "skalade", "pistagen\u00f6tter", "crispy", "cheddar", "chicken", "boneless", "chicken", "breasts", "ritz", "crackers", "salt", "black", "pepper", "whole", "milk", "cheddar", "cheese", "dried", "parsley", "cream", "chicken", "soup", "sour", "cream", "butter", "flank", "steak", "sandwiches", "sandwiches", "flank", "steak", "sourdough", "rolls", "jack", "cheese", "marinade", "olive", "oil", "red", "wine", "vinegar", "lime", "juice", "onion", "sugar", "oregano", "garlic", "salt", "guacamole", "avocados", "lemon", "juice", "salt", "tabasco", "tomatoes", "onion", "cilantro", "teriyaki", "chicken", "soy", "sauce","sherry", "vegetable", "oil", "brown", "sugar", "fresh", "ginger", "boneless", "chicken", "breast", "halves", "optional", "garnish", "sesame", "seeds", "scallions", "chokladtryffelkaka", "kakao", "vaniljsocker","dorito", "chicken", "cheese", "casserole", "rotisserie", "chicken", "sour", "cream", "cream", "chicken", "soup", "corn", "cheddar", "cheese", "salt", "black", "pepper", "garlic", "powder", "nacho", "cheese", "doritos"];
-		
+
 		// Constructing the suggestion engine
 		var foods = new Bloodhound({
 			datumTokenizer: Bloodhound.tokenizers.whitespace,
 			queryTokenizer: Bloodhound.tokenizers.whitespace,
 			local: foods
 		});
-		
+
 		// Initializing the typeahead
 		$('.typeahead').typeahead({
 			hint: true,
@@ -33,9 +33,9 @@
 			name: 'foods',
 			source: foods
 		});
-	});  
+	});
 	</script>
-	
+
 	<style type="text/css">
 	.bs-example {
 		font-family: sans-serif;
@@ -84,7 +84,7 @@
 		margin: 0;
 	}
 	</style>
-	
+
 	<style type="text/css">
       #searchbar{
 
@@ -231,6 +231,12 @@
       <button class="btn btn-primary" type="submit" >Search</button>
     </form>
     </div>
+</div>
+<div id="Paris" class="tabcontent">
+
+
+  
+</div>
 
 </section>
 <!-- end of tab -->
@@ -262,7 +268,7 @@
         <tbody>
         {% for res in result %}
         <tr><td>
-        
+
             <p><strong>{{res[1]}}</strong></p>
 
             <p>{{res[2]}}
@@ -273,9 +279,9 @@
           </form>
 
           </td></tr>
-          
+
           {% endfor %}
-          
+
         </tbody>
       </table>
        </div>
