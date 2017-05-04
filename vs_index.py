@@ -26,7 +26,7 @@ create_body= {
                 "my_synonym": {
                     "type":      "custom",
                     "tokenizer": "standard",
-                    "filter":[ 
+                    "filter":[
                             [
                             "lowercase"
                             "asciifolding"
@@ -50,12 +50,12 @@ create_body= {
             "properties":{
                 "Title":{
                     "type":"text",
-                    
+
                 },
                 "Ing_Name" :{
                     "type":"text",
                     "analyzer":"my_synonym",
-                },                
+                },
             }
         }
 
@@ -65,13 +65,12 @@ create_body= {
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 corpus='reciption2'
-
-# es.indices.delete(index=corpus)
+es.indices.delete(index=corpus)
 es.indices.create(index=corpus, ignore=400, body=create_body)
 
 with open("data_test.json", 'r') as file:
     data = json.load(file)
-    
+
 count=0
 for item in data:
     ing_list=data[item]['Ingredients']
@@ -87,7 +86,7 @@ for item in data:
     if len(action)==500:
         helpers.bulk(es, action, index=corpus, doc_type="food_type", stats_only=True)
         action=[]
-        
+
 if len(action)!=0:
     helpers.bulk(es, action, index=corpus, doc_type="food_type", stats_only=True)
 action=[]
