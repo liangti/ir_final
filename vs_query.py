@@ -19,6 +19,7 @@ global stop_dict
 def go_detail():
     global search_results,cur_page,page_len
     select = request.form['inputDetail']
+    print select
     return render_template("detail.html", result=search_results[int(select)-1])
 
 @app.route("/")
@@ -81,6 +82,4 @@ if __name__ == '__main__':
     for s in stop_word:
         stop_dict[s]=1
 #     app.debug = True  
-    app = Flask(__name__)  
-    app._static_folder = "/Users/uuisafresh/Documents/workspace/IR/Final"
     app.run()

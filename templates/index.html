@@ -263,12 +263,12 @@
         {% for res in result %}
         <tr><td>
         
-            <p><strong>{{res[0]}}({{res[2]}})</strong></p>
+            <p><strong>{{res[1]}}</strong></p>
 
-            <p>{{res[1]}}
+            <p>{{res[2]}}
             </p>
 
-          <form name="mydetail" action="detail" method="post"><input name="inputDetail" type="hidden" value="{{ res[11] }}">
+          <form name="mydetail" action="detail" method="post"><input name="inputDetail" type="hidden" value="{{ res[0] }}">
           <button class="btn btn-primary" type="submit" >See the details</button>
           </form>
 
