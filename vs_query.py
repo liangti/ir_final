@@ -4,7 +4,7 @@ Created on Feb 18, 2017
 @author: uuisafresh
 '''
 from flask import *
-from ES import es_query
+from ES import *
 import nltk
 import types
 import shelve
@@ -19,6 +19,7 @@ global stop_dict
 def go_detail():
     global search_results,cur_page,page_len
     select = request.form['inputDetail']
+    print select
     return render_template("detail.html", result=search_results[int(select)-1])
 
 @app.route("/")

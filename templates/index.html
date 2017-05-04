@@ -269,6 +269,7 @@
         {% for res in result %}
         <tr><td>
         
+<<<<<<< HEAD
             <section class="col-xs-12 col-sm-6 col-md-12">
 			<article class="search-result row">
 			<div class="col-xs-12 col-sm-12 col-md-3">
@@ -286,8 +287,14 @@
 			<span class="clearfix borda"></span>
 		</article>
 	</section>
+=======
+            <p><strong>{{res[1]}}</strong></p>
 
-          <form name="mydetail" action="detail" method="post"><input name="inputDetail" type="hidden" value="{{ res[11] }}">
+            <p>{{res[2]}}
+            </p>
+>>>>>>> origin/master
+
+          <form name="mydetail" action="detail" method="post"><input name="inputDetail" type="hidden" value="{{ res[0] }}">
           <button class="btn btn-primary" type="submit" >See the details</button>
           </form>
 
