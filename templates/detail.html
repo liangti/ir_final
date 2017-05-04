@@ -1,48 +1,95 @@
-    <html>
+<html>
   <head>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
-  em{
-    background-color: yellow
-    }</style> 
+    em{
+      background-color: yellow
+      }
+    body  {
+      /*background-image: url("background_4.jpg");*/
+
+      }
+      .content{
+        max-width: 800px;
+        margin: auto;
+        margin-top: 50px;
+      }
+      #last_modified {
+          margin-top: 20px;
+          margin-bottom: 20px;
+      }
+      #sample_picture{
+        height:350px;
+        width: 350px;
+        margin: auto;
+      }
+
+
+      #menu_tab{
+        padding-top:50px;
+        padding-left:30px;
+        padding-right:30px;
+      }
+
+  </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Detail</title>
+    <title>Iced Almond Drink ( Almond Horchata )</title>
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
   </head>
- 
+
   <body>
-      <table class="table table-bordered result">
-  <caption>{{result[0]}}</caption>
-  <thead>
-    <tr>
-      <th>language</th>	
-      <th>country</th>
-      <th>director</th>
-      <th>location</th>
-      <th>starring</th>
-      <th>time</th>
-      <th>runtime</th>
-      <th>categories</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{result[2]}}</td>
-      <td>{{result[3]}}</td>
-      <td>{{result[4]}}</td>
-      <td>{{result[5]}}</td>
-      <td>{{result[6]}}</td>
-      <td>{{result[7]}}</td>
-      <td>{{result[8]}}</td>
-      <td>{% for i in result[9] %}
-      <p>{{i}}</p>
-		{% endfor %}
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-<p class="text-info text-left result">{{result[10]|safe}}</p>
+    <div class="content">
+      <div clas="row">
+        <div class="col-sm-6">
+          <div id="sample_picture">
+            <img src="https://photos.bigoven.com/recipe/hero/recipe-no-image.jpg" alt="..." class="img-thumbnail">
+          </div>
+        </div>
+        <div class="col-sm-6">
+
+          <h2 id="title">Iced Almond Drink ( Almond Horchata )</h2>
+          <p id="last_modified"><span class="glyphicon glyphicon-time"></span> Last Modified: 2017-04-20T02:46:21.523Z</p>
+        </div>
+        <div id="category_tag" class="col-sm-6">
+          <a href="#" class="btn btn-primary">Drinks</a>
+          <a href="#" class="btn btn-info">Cuisine</a>
+          <a href="#" class="btn btn-success">Mexican</a>
+        </div>
+      </div>
+      <div class="col-sm-12" id="menu_tab">
+
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Ingredient</a></li>
+            <li><a data-toggle="tab" href="#menu1">Instruction</a></li>
+
+          </ul>
+
+          <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+              <h3>Ingredients</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div id="menu1" class="tab-pane fade">
+              <h3>Instruction</h3>
+              <p>Instructions": "Source: Gourmet Mag. 4/97    In a blender combine all ingredients except ice and let stand in blender 5  minutes. Blend mixture on low speed and gradually work up to high speed  (use caution when blending hot liquids). Blend mixture on high speed 3  minutes. Add 2 cups ice and blend until melted.    Pour mixture through a large sieve lined with a double layer of dempened  cheesecloth into a bowl, stirring and discard solids.    Fill 4 tall glasses with additional ice and =horchata=. Garnish with  cinnamon sticks and lime zest.    Note* The flavor of horchata improves if made 1 day in ahead and chilled,  covered.    From the recipe files of suzy@gannett.infi.net    Posted to MM-Recipes Digest V4 #093 by Suzy <suzy@gannett.infi.net> on Apr  3, 1997</p>
+            </div>
+
+          </div>
+
+      </div>
+
+    </div>
+
   </body>
 </html>
