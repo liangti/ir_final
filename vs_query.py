@@ -4,7 +4,7 @@ Created on Feb 18, 2017
 @author: uuisafresh
 '''
 from flask import *
-from ES import es_query
+from ES import *
 import nltk
 import types
 import shelve
