@@ -19,6 +19,7 @@ global stop_dict
 def go_detail():
     global search_results,cur_page,page_len
     select = request.form['inputDetail']
+    print select
     return render_template("detail.html", result=search_results[int(select)-1])
 
 @app.route("/")
@@ -30,12 +31,9 @@ def results():
     global search_results,cur_page,page_len,stop_dict
 #     try:
     query = request.form['inputValue']
-    starring = request.form['starValue']
-    genre = request.form['genreValue']
-    run1 = request.form['runValue1']
-    run2 = request.form['runValue2']
     #print query, starring, genre
-    search_results, length = es_query(query,starring, genre, run1, run2)
+    print query
+    search_results, length = es_query(query)
     #print length
     page_len=length/10
     cur=cur_page
@@ -48,9 +46,6 @@ def results():
         if stop_dict.has_key(dbq):
             stop_flag=True
             stop.append(q)
-        if not dict_index.has_key(dbq):
-            unknown.append(q)
-            unknown_flag=True
     page=[i for i in range(len(search_results)/10)]
     return render_template('index.html',result=search_results[cur*10:(cur+1)*10], result_num=length, result_page=page[cur*10:(cur+1)*10], cur=cur, stop_flag=stop_flag,stop_word=stop,unknown_flag=unknown_flag, unknown=unknown)
 #     except KeyError:
@@ -86,6 +81,5 @@ if __name__ == '__main__':
     stop_dict=dict()
     for s in stop_word:
         stop_dict[s]=1
-    app.debug = True    
-    
+#     app.debug = True  
     app.run()

@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
     
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="text/javascript" src="./js/typeahead.bundle.js"></script>
+	<script type = "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.1.1/typeahead.bundle.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
 		// Defining the local dataset
-		var foods = ['salt','pepper','oil','flour','garlic','sugar','water','onion','olive','chicken','juice'];
+		var foods = ["creamy", "peach", "pie", "cake", "mix", "butter", "eggs", "light", "peach", "slices", "cream", "cheese", "sugar", "vanilla", "extract", "dry", "rub", "pork", "shoulder", "paprika", "black", "pepper", "garlic", "powder", "onion", "powder", "cayenne", "pepper", "kosher", "salt", "brown", "sugar", "brunsviger", "sauce", "brun", "farin", "m\u00f8rk", "sirup", "melasse", "vanillestang", "salt", "fl\u00f8de", "sm\u00f8r", "baked", "crab", "rangoon", "garlic", "salt", "worcestershire", "sauce", "ton", "wrappers", "green", "onion", "imitation", "crab", "cream", "cheese", "kfc", "original", "recipe", "fried", "chicken", "crisco", "cooking", "oil", "beaten", "milk", "purpose", "flour", "salt", "black", "pepper", "accent", "flavor", "enhancer", "boneless", "chicken", "breasts", "leilas", "rocky", "road", "m\u00f6rk", "kvalitetschoklad", "70", "%", "dumlekola", "mini", "marshmallows", "salta", "jordn\u00f6tter", "skalade", "pistagen\u00f6tter", "crispy", "cheddar", "chicken", "boneless", "chicken", "breasts", "ritz", "crackers", "salt", "black", "pepper", "whole", "milk", "cheddar", "cheese", "dried", "parsley", "cream", "chicken", "soup", "sour", "cream", "butter", "flank", "steak", "sandwiches", "sandwiches", "flank", "steak", "sourdough", "rolls", "jack", "cheese", "marinade", "olive", "oil", "red", "wine", "vinegar", "lime", "juice", "onion", "sugar", "oregano", "garlic", "salt", "guacamole", "avocados", "lemon", "juice", "salt", "tabasco", "tomatoes", "onion", "cilantro", "teriyaki", "chicken", "soy", "sauce","sherry", "vegetable", "oil", "brown", "sugar", "fresh", "ginger", "boneless", "chicken", "breast", "halves", "optional", "garnish", "sesame", "seeds", "scallions", "chokladtryffelkaka", "kakao", "vaniljsocker","dorito", "chicken", "cheese", "casserole", "rotisserie", "chicken", "sour", "cream", "cream", "chicken", "soup", "corn", "cheddar", "cheese", "salt", "black", "pepper", "garlic", "powder", "nacho", "cheese", "doritos"];
 		
 		// Constructing the suggestion engine
 		var foods = new Bloodhound({
@@ -223,8 +223,8 @@
     <div style="padding: 10px 100px 10px;">
     <form class="bs-example bs-example-form" role="form" action="results" method="post">
       <div class="input-group">
-      <span class="input-group-addon">Title</span>
-      <input type="text" class="typeahead tt-query" name="title" placeholder="Title">
+      <span class="input-group-addon">Query</span>
+      <input type="text" class="typeahead tt-query" name="inputValue" placeholder="">
       </div>
     <br>
 
@@ -258,7 +258,26 @@
       {%endif%}
 
       </p>
+<table class="table table-striped table-bordered table-hover result stop_word">
+        <tbody>
+        {% for res in result %}
+        <tr><td>
+        
+            <p><strong>{{res[1]}}</strong></p>
 
+            <p>{{res[2]}}
+            </p>
+
+          <form name="mydetail" action="detail" method="post"><input name="inputDetail" type="hidden" value="{{ res[0] }}">
+          <button class="btn btn-primary" type="submit" >See the details</button>
+          </form>
+
+          </td></tr>
+          
+          {% endfor %}
+          
+        </tbody>
+      </table>
        </div>
 
 <section id="footer">
