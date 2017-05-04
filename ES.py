@@ -83,13 +83,13 @@ def es_query(title, ingradient='', category='Sauces', instruction=''):
         #print item
         
         output.append(item)
-        print item['_score']
-        print item['_source']['Instructions']
+        #print item['_score']
+        #print item['_source']['Instructions']
 #         print item['_source']["Title"]
 #         print item['_source']["Category"]
 #         print item['_source']["Ing_Name"]
-        print "*********"
-    print len(output)
+        #print "*********"
+    #print len(output)
     return output,len(output)
 
  

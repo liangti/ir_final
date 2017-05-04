@@ -19,15 +19,7 @@ global stop_dict
 def go_detail():
     global search_results,cur_page,page_len
     select = request.form['inputDetail']
-    print select,'select'
-#     print select
     return render_template("detail.html", result=search_results[int(select)-1])
-
-
-
-   
-
-
 
 @app.route("/")
 def search():
@@ -42,9 +34,9 @@ def results():
     genre = request.form['genreValue']
     run1 = request.form['runValue1']
     run2 = request.form['runValue2']
-    print query, starring, genre
+    #print query, starring, genre
     search_results, length = es_query(query,starring, genre, run1, run2)
-    print length
+    #print length
     page_len=length/10
     cur=cur_page
     stop=[]
@@ -66,23 +58,23 @@ def results():
     
 @app.route("/jump_prev", methods=['POST'])
 def jump_prev():
-    print "yes"
+    #print "yes"
     global search_results,cur_page,page_len
     cur_page-=1
     cur_page=max(0,cur_page)
     cur=cur_page
     page=[i for i in range(len(search_results)/10)]
-    print cur_page,"prev"
+    #print cur_page,"prev"
     return render_template('index.html', result=search_results[cur*10:(cur+1)*10], result_num=len(search_results), result_page=page, cur=cur)
     
 @app.route("/jump_next", methods=['POST'])
 def jump_next():
-    print "yes"
+    #print "yes"
     global search_results,cur_page,page_len
     cur_page+=1
     cur_page=min(page_len-1,cur_page)
     cur=cur_page
-    print cur_page,"next"
+    #print cur_page,"next"
     page=[i for i in range(len(search_results)/10)]
     return render_template('index.html', result=search_results[cur*10:(cur+1)*10], result_num=len(search_results), result_page=page, cur=cur)
     
