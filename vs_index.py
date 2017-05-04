@@ -74,9 +74,9 @@ with open("data_test.json", 'r') as file:
 count=0
 for item in data:
     ing_list=data[item]['Ingredients']
-    ing_name=''
+    ing_name=[]
     for ing in ing_list:
-        ing_name+=ing['Name']
+        ing_name.append([ing['Name'],ing['Unit'],ing['Quantity'],ing['PreparationNotes']])
     data[item]['Ing_Name']=ing_name
 
 action=[]
