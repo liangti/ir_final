@@ -5,7 +5,7 @@ es = Elasticsearch()
 
 
 
-def es_query(title, ingradient='', category='Sauces', instruction=''):
+def es_query(query, ingradient='', category='Sauces', instruction=''):
     
 
     recipts = es.search(index="reciption2", body={
@@ -35,36 +35,9 @@ def es_query(title, ingradient='', category='Sauces', instruction=''):
        "should": 
         {
           "multi_match" : {
-            "query":      title,
+            "query":      query,
             "operator":  "or",
             "fields":     ["Title"]
-          }
-        },
-        "should":
-        {
-            
-         "multi_match" : {
-            "query":      instruction,
-            "operator":  "or",
-            "fields":     ["Instructions"]
-          }
-        },
-             "should":
-        {
-            
-         "multi_match" : {
-            "query":      category,
-            "operator":  "or",
-            "fields":     ["Category"]
-          }
-        },
-             "should":
-        {
-            
-         "multi_match" : {
-            "query":      instruction,
-            "operator":  "or",
-            "fields":     ["Instructions"]
           }
         }
             
@@ -81,8 +54,15 @@ def es_query(title, ingradient='', category='Sauces', instruction=''):
     count=1
     for item in recipts['hits']['hits']:
         #print item
-        
-        output.append(item)
+        cur=[item['_source']["Title"],item['_source']["Instructions"]]
+        content=cur[1]
+        if len(content)>300:
+            content=content[0:300]+"..."
+        cur[1]=content
+        cur.append(str(count))
+        cur.append(item['_score'])
+        output.append(cur)
+        count+=1
         #print item['_score']
         #print item['_source']['Instructions']
 #         print item['_source']["Title"]
