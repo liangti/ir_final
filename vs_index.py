@@ -74,7 +74,11 @@ es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 corpus='reciption2'
 
+<<<<<<< HEAD
 es.indices.delete(index=corpus)
+=======
+#es.indices.delete(index=corpus)
+>>>>>>> 27d033aec2ac79e2a96c0fcf5ed8f62bbc1195b3
 es.indices.create(index=corpus, ignore=400, body=create_body)
 
 with open("data_test.json", 'r') as file:
