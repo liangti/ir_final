@@ -74,14 +74,12 @@ es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 corpus='reciption2'
 
-<<<<<<< HEAD
+
+
 es.indices.delete(index=corpus)
-=======
-#es.indices.delete(index=corpus)
->>>>>>> 27d033aec2ac79e2a96c0fcf5ed8f62bbc1195b3
 es.indices.create(index=corpus, ignore=400, body=create_body)
 
-with open("data_test.json", 'r') as file:
+with open("data_sample.json", 'r') as file:
     data = json.load(file)
     
 count=0
@@ -91,6 +89,7 @@ for item in data:
     for ing in ing_list:
         ing_name.append([ing['Name'],ing['Unit'],str(ing['Quantity']),ing['PreparationNotes']])
     data[item]['Ing_Name']=ing_name
+#     data[item]['Photo']='https://bigoven-res.cloudinary.com/image/upload/shit-on-a-shingle-recipe-'+item+'.jpg'
 #     print ing_name
 
 action=[]

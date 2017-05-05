@@ -49,22 +49,22 @@
   </head>
 
   <body>
-    <div class="content">
+    <div class="content result">
       <div clas="row">
         <div class="col-sm-6">
           <div id="sample_picture">
-            <img src="https://photos.bigoven.com/recipe/hero/recipe-no-image.jpg" alt="..." class="img-thumbnail">
+            <img src="{{result[3]}}" alt="..." class="img-thumbnail">
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 result">
 
-          <h2 id="title">Iced Almond Drink ( Almond Horchata )</h2>
-          <p id="last_modified"><span class="glyphicon glyphicon-time"></span> Last Modified: 2017-04-20T02:46:21.523Z</p>
+          <h2 id="title">{{result[1]}}</h2>
+          <p id="last_modified"><span class="glyphicon glyphicon-time"></span></p>
         </div>
         <div id="category_tag" class="col-sm-6">
-          <a href="#" class="btn btn-primary">Drinks</a>
-          <a href="#" class="btn btn-info">Cuisine</a>
-          <a href="#" class="btn btn-success">Mexican</a>
+          <a href="#" class="btn btn-primary">{{result[5]}}</a>
+          <a href="#" class="btn btn-info">{{result[8]}}</a>
+          <a href="#" class="btn btn-success">{{result[7]}}</a>
         </div>
       </div>
       <div class="col-sm-12" id="menu_tab">
@@ -78,18 +78,47 @@
           <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
               <h3>Ingredients</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p>
+              <tabel><tbody>
+                {% for res in result[4] %}
+                <tr>
+                                                            <td class="visible-if-pro-member" style="width: 12px; padding-left: 2px;">
+                                                                        <a href="/recipe/editingredient/1930492/19882323" style="color: #a2a2a2;">
+                                                                            <i style="font-size: 6px; position: relative; top: -6px;" class="fa fa-circle-o unlinkedBullet" title="Click to link-in nutrition info"></i>
+                                                                        </a>
+                                                            </td>
+
+                                                            <td style="min-width: 150px; margin-right: 10px; padding-bottom: 8px;">
+                                                                <span class="ingredient  ">
+
+                                                                    <span class="name">{{res[0]}}(about {{res[2]}} {{res[1]}})</span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                <br>
+{% endfor %}
+</tbody></tabel>
+              </p>
             </div>
             <div id="menu1" class="tab-pane fade">
               <h3>Instruction</h3>
-              <p>Instructions": "Source: Gourmet Mag. 4/97    In a blender combine all ingredients except ice and let stand in blender 5  minutes. Blend mixture on low speed and gradually work up to high speed  (use caution when blending hot liquids). Blend mixture on high speed 3  minutes. Add 2 cups ice and blend until melted.    Pour mixture through a large sieve lined with a double layer of dempened  cheesecloth into a bowl, stirring and discard solids.    Fill 4 tall glasses with additional ice and =horchata=. Garnish with  cinnamon sticks and lime zest.    Note* The flavor of horchata improves if made 1 day in ahead and chilled,  covered.    From the recipe files of suzy@gannett.infi.net    Posted to MM-Recipes Digest V4 #093 by Suzy <suzy@gannett.infi.net> on Apr  3, 1997</p>
+              <p>{{result[2]}}</p>
             </div>
 
           </div>
 
       </div>
+<div class = "container recommend"> 
+<h3>Recommendation</h3>
+<form name="mydetail" action="detail" method="post"><input name="inputDetail" type="hidden" value="{{recommend[0]}}">
+          <button type="submit" ><img src = "{{recommend[3]}}" class="img-thumbnail" width="200px">  </button>
+          </form>
+    
+    <img src = "{{result[3]}}" class="img-thumbnail" width="200px">  
+  </div> 
 
-    </div>
+</div>
+
 
   </body>
 </html>
