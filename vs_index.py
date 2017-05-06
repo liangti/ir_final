@@ -76,9 +76,6 @@ es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 corpus='reciption2'
 
-
-
-
 es.indices.delete(index=corpus)
 
 es.indices.create(index=corpus, ignore=400, body=create_body)
@@ -93,6 +90,7 @@ for item in data:
     for ing in ing_list:
         ing_name.append([ing['Name'],ing['Unit'],str(ing['Quantity']),ing['PreparationNotes']])
     data[item]['Ing_Name']=ing_name
+
 #     data[item]['Photo']='https://bigoven-res.cloudinary.com/image/upload/shit-on-a-shingle-recipe-'+item+'.jpg'
 #     print ing_name
 
@@ -100,8 +98,8 @@ action=[]
 for item in data:
     #print data[item]['title']
     action.append(data[item])
-    print data[item]['Title']
-    print len(action)
+    #print data[item]['Title']
+    #print len(action)
     if len(action)==500:
         helpers.bulk(es, action, index=corpus, doc_type="food_type")
         action=[]
