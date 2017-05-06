@@ -16,7 +16,7 @@
       }
     body  {
       /*background-image: url("background_4.jpg");*/
-
+        margin-top: 50px
       }
       .content{
         max-width: 800px;
@@ -31,8 +31,8 @@
         height:350px;
         width: 350px;
         margin: auto;
+        float: right;
       }
-
 
       #menu_tab{
         padding-top:50px;
@@ -44,14 +44,15 @@
         margin-top: 100px;
       }
       #pic{
-        height: inherit;
+
+        max-height:350px;
         float: right;
       }
       #menu_tab{
-        padding-left: 250px;
+        padding-left: 350px;
       }
       #title_tag{
-        padding-left: initial;
+
       }
       #pic_div{
         padding-right: initial;
@@ -133,7 +134,9 @@
 <h3>Recommendation</h3>
 <form name="mydetail" action="detail" method="post"><input name="inputDetail" type="hidden" value="{{recommend[0]}}">
   <button type="submit" ><img src = "{{recommend[3]}}" class="img-thumbnail" width="200px">  </button>
+  <h5>{{recommend[1]}}</h5>
 </form>
+
 <img src = "{{result[3]}}" class="img-thumbnail" width="200px">
 </aside>
 
