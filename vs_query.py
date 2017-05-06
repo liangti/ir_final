@@ -20,7 +20,7 @@ def go_detail():
     global search_results,cur_page,page_len
     select = request.form['inputDetail']
 
-    print select,(int(select)%page_len)
+    #print select,(int(select)%page_len)
     return render_template("detail.html", result=search_results[int(select)-1],recommend=search_results[(int(select)%page_len)])
 @app.route("/detail1", methods=['POST'])
 def go_recommend():

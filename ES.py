@@ -3,8 +3,6 @@ from elasticsearch import Elasticsearch
 
 es = Elasticsearch()
 
-
-
 def es_query(query, ingradient='', category='Sauces', instruction=''):
     
 
@@ -55,7 +53,7 @@ def es_query(query, ingradient='', category='Sauces', instruction=''):
     for item in recipts['hits']['hits']:
         #print item
 
-        print item['_source']['PhotoUrl']
+        #print item['_source']['PhotoUrl']
         act_min=str(item['_source']['ActiveMinutes'])+' min'
         if item['_source']['Cuisine']=='': item['_source']['Cuisine']='Unknown'
         cur=[str(count),
