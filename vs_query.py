@@ -56,7 +56,7 @@ def results():
     return render_template('index.html',result=search_results[cur*10:(cur+1)*10], result_num=page_len, result_page=page[cur*10:(cur+1)*10], cur=cur, stop_flag=stop_flag,stop_word=stop,unknown_flag=unknown_flag, unknown=unknown)
 #     except KeyError:
 #         return '"Problem"'
-    
+
 @app.route("/jump_prev", methods=['POST'])
 def jump_prev():
     #print "yes"
@@ -67,7 +67,7 @@ def jump_prev():
     page=[i for i in range(len(search_results)//10)]
     #print cur_page,"prev"
     return render_template('index.html', result=search_results[cur*10:(cur+1)*10], result_num=len(search_results), result_page=page, cur=cur)
-    
+
 @app.route("/jump_next", methods=['POST'])
 def jump_next():
     #print "yes"
@@ -78,7 +78,7 @@ def jump_next():
     #print cur_page,"next"
     page=[i for i in range(len(search_results)//10)]
     return render_template('index.html', result=search_results[cur*10:(cur+1)*10], result_num=len(search_results), result_page=page, cur=cur)
-    
+
 
 if __name__ == '__main__':
     cur_page=0
@@ -87,5 +87,6 @@ if __name__ == '__main__':
     stop_dict=dict()
     for s in stop_word:
         stop_dict[s]=1
-    app.debug = True  
-    app.run()
+
+#    app.debug = True
+    app.run(debug=True)
