@@ -54,7 +54,7 @@ def es_query(query, ingradient='', category='Sauces', instruction=''):
     count=1
     for item in recipts['hits']['hits']:
         #print item
-        print item['_source']['Ing_Name']
+        #print item['_source']['Ing_Name']
         cur=[str(count),item['_source']["Title"],item['_source']["Instructions"],item['_source']['PhotoUrl'],item['_source']['Ing_Name'],item['_source']['Category'],item['_source']['LastModified'],item['_source']['Cuisine']]
         content=cur[1]
         if len(content)>300:
