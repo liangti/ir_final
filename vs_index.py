@@ -26,7 +26,7 @@ create_body= {
                 "my_synonym": {
                     "type":      "custom",
                     "tokenizer": "standard",
-                    "filter":[ 
+                    "filter":[
                             [
                             "lowercase"
                             "asciifolding"
@@ -51,19 +51,21 @@ create_body= {
                 "Title":{
                     "type":"text",
                     "analyzer":"my_synonym"
-                    
-                }
-                          ,        
+
+
+                },
+
                 "Ing_Name" :{
                     "type": "nested",
                     "properties":{
-                    "Name":{"type": "text"},    
-                    "Unit":{"type": "text"},   
+                    "Name":{"type": "text"},
+                    "Unit":{"type": "text"},
                     "Quantity":{"type": "float"},
-                    "PreparationNotes":{"type": "text"}    
+                    "PreparationNotes":{"type": "text"}
                     },
                     "analyzer":"my_synonym",
-                }               
+                }
+
             }
         }
 
@@ -76,12 +78,14 @@ corpus='reciption2'
 
 
 
+
 es.indices.delete(index=corpus)
+
 es.indices.create(index=corpus, ignore=400, body=create_body)
 
 with open("data_sample.json", 'r') as file:
     data = json.load(file)
-    
+
 count=0
 for item in data:
     ing_list=data[item]['Ingredients']
@@ -101,7 +105,7 @@ for item in data:
     if len(action)==500:
         helpers.bulk(es, action, index=corpus, doc_type="food_type")
         action=[]
-        
+
 if len(action)!=0:
     helpers.bulk(es, action, index=corpus, doc_type="food_type")
 action=[]
