@@ -3,9 +3,9 @@
 import urllib2
 import json
 import traceback
-data=list(range(100000,100001))
+data=list(range(1930000,1931000))
 
-obj = open('data.txt', 'wb')
+obj = open('data.json', 'wb')
 out={}
 key='p2ELF989mf4Se9T2V53SOcaUBTnM7y28'
 for i in data:
@@ -23,6 +23,6 @@ for i in data:
         # traceback.print_exc()
 
 json_d=json.dumps(out)
-obj = open('data_sample.txt', 'wb')
+obj = open('data_sample.json', 'wb')
 obj.write(json_d)
 obj.close

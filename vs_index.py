@@ -52,10 +52,17 @@ create_body= {
                     "type":"text",
                     "analyzer":"my_synonym"
 
+
                 },
 
                 "Ing_Name" :{
                     "type": "nested",
+                    "properties":{
+                    "Name":{"type": "text"},
+                    "Unit":{"type": "text"},
+                    "Quantity":{"type": "float"},
+                    "PreparationNotes":{"type": "text"}
+                    },
                     "analyzer":"my_synonym",
                 }
 
@@ -68,10 +75,15 @@ create_body= {
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 
 corpus='reciption2'
-#es.indices.delete(index=corpus)
+
+
+
+
+es.indices.delete(index=corpus)
+
 es.indices.create(index=corpus, ignore=400, body=create_body)
 
-with open("data_test.json", 'r') as file:
+with open("data_sample.json", 'r') as file:
     data = json.load(file)
 
 count=0
@@ -79,9 +91,10 @@ for item in data:
     ing_list=data[item]['Ingredients']
     ing_name=[]
     for ing in ing_list:
-        ing_name.append([ing['Name'],ing['Unit'],ing['Quantity'],ing['PreparationNotes']])
+        ing_name.append([ing['Name'],ing['Unit'],str(ing['Quantity']),ing['PreparationNotes']])
     data[item]['Ing_Name']=ing_name
-    print ing_name
+#     data[item]['Photo']='https://bigoven-res.cloudinary.com/image/upload/shit-on-a-shingle-recipe-'+item+'.jpg'
+#     print ing_name
 
 action=[]
 for item in data:
@@ -90,9 +103,9 @@ for item in data:
     print data[item]['Title']
     print len(action)
     if len(action)==500:
-        helpers.bulk(es, action, index=corpus, doc_type="food_type", stats_only=True)
+        helpers.bulk(es, action, index=corpus, doc_type="food_type")
         action=[]
 
 if len(action)!=0:
-    helpers.bulk(es, action, index=corpus, doc_type="food_type", stats_only=True)
+    helpers.bulk(es, action, index=corpus, doc_type="food_type")
 action=[]

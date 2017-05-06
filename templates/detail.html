@@ -58,19 +58,23 @@
   </head>
 
   <body>
-    <div class="content">
+    <div class="content result">
       <div clas="row">
         <div class="col-sm-6">
           <div id="sample_picture">
-            <img src={{result[3]}} alt="..." class="img-thumbnail">
+
+            <img src="{{result[3]}}" alt="..." class="img-thumbnail">
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 result">
+
           <h2 id="title">{{result[1]}}</h2>
-          <p id="last_modified"><span class="glyphicon glyphicon-time"></span> Last Modified: 2017-04-20T02:46:21.523Z</p>
+          <p id="last_modified"><span class="glyphicon glyphicon-time"></span></p>
         </div>
         <div id="category_tag" class="col-sm-6">
           <a href="#" class="btn btn-primary">{{result[5]}}</a>
+          <a href="#" class="btn btn-info">{{result[8]}}</a>
+          <a href="#" class="btn btn-success">{{result[7]}}</a>
 
         </div>
       </div>
@@ -86,7 +90,29 @@
           <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
               <h3>Ingredients</h3>
-              <p>{{result[4]}}</p>
+
+              <p>
+              <tabel><tbody>
+                {% for res in result[4] %}
+                <tr>
+                                                            <td class="visible-if-pro-member" style="width: 12px; padding-left: 2px;">
+                                                                        <a href="/recipe/editingredient/1930492/19882323" style="color: #a2a2a2;">
+                                                                            <i style="font-size: 6px; position: relative; top: -6px;" class="fa fa-circle-o unlinkedBullet" title="Click to link-in nutrition info"></i>
+                                                                        </a>
+                                                            </td>
+
+                                                            <td style="min-width: 150px; margin-right: 10px; padding-bottom: 8px;">
+                                                                <span class="ingredient  ">
+
+                                                                    <span class="name">{{res[0]}}(about {{res[2]}} {{res[1]}})</span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                <br>
+{% endfor %}
+</tbody></tabel>
+              </p>
+
             </div>
             <div id="menu1" class="tab-pane fade">
               <h3>Instruction</h3>
@@ -96,12 +122,18 @@
           </div>
 
       </div>
-      </div>
-      <div id="print">
-        <a href="#" class="btn btn-primary btn-primary" onclick="myFunction()"><span class="glyphicon glyphicon-print"></span>Print</a>
-      </div>
 
-    </div>
+<div class = "container recommend">
+<h3>Recommendation</h3>
+<form name="mydetail" action="detail" method="post"><input name="inputDetail" type="hidden" value="{{recommend[0]}}">
+          <button type="submit" ><img src = "{{recommend[3]}}" class="img-thumbnail" width="200px">  </button>
+          </form>
+
+    <img src = "{{result[3]}}" class="img-thumbnail" width="200px">
+  </div>
+
+</div>
+
 
   </body>
 </html>
