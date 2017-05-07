@@ -57,6 +57,6 @@ def recipe_top_5(recipe_id, all_ing_list):
     sorted_tups = sorted(ing_similarity.items(), key=operator.itemgetter(1), reverse=True)
     top_5 = [sorted_tups[0][0], sorted_tups[1][0], sorted_tups[2][0], sorted_tups[3][0], sorted_tups[4][0]]
 
-    return ",".join(top_5)
+    return top_5
 
 get_ingredient()
