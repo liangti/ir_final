@@ -130,7 +130,7 @@
 </div>
 <!-- end of left side  -->
 
-<aside class = "container recommend col-sm-3">
+<aside class = "container recommends col-sm-3">
 <h3>You might also like</h3>
 {% for recommend in recommends %}
 <form name="mydetail" action="detail" method="post"><input name="inputDetail" type="hidden" value="{{recommend[0]}}">
@@ -138,7 +138,6 @@
   <h5>{{recommend[1]}}</h5>
 </form>
 
-<img src = "{{result[3]}}" class="img-thumbnail" width="200px">
 {% endfor %}
 </aside>
 

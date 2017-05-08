@@ -19,15 +19,15 @@ global stop_dict
 def go_detail():
     global search_results,cur_page,page_len
     select = request.form['inputDetail']
-
+    
     #print select,(int(select)%page_len)
-    return render_template("detail.html", result=search_results[int(select)-1],recommend=search_results[(int(select)%page_len)])
+    recommend_list=search_results[int(select)-1][13]
+    print recommend_list
+    recommend_result=[]
+    for r in recommend_list:
+        recommend_result.append(search_results[r])
+    return render_template("detail.html", result=search_results[int(select)-1],recommends=recommend_result)
 
-@app.route("/detail1", methods=['POST'])
-def go_recommend():
-    global search_results,cur_page,page_len
-    select = request.form['RecomendPage']
-    return render_template("detail.html", result=search_results[int(select)-1],recommend = search_results[(int(select))%page_len])
 
 @app.route("/")
 def search():
