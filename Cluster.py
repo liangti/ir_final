@@ -13,17 +13,3 @@ def cluster(vectors):
 def vectorize():
 
     pass
-
-def title_similarity():
-
-    pass
-
-def ingredient_similarity():
-
-    pass
-
-def category_similarity():
-
-    pass
-
-

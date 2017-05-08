@@ -1,7 +1,13 @@
+import shelve
 from datetime import datetime
 from elasticsearch import Elasticsearch
 
 es = Elasticsearch()
+
+def recommend_data():
+
+    d = shelve.open("recipe_similarity.dat")
+    return d
 
 def es_query(query, ingradient='', category='Sauces', instruction=''):
     
@@ -39,6 +45,9 @@ def es_query(query, ingradient='', category='Sauces', instruction=''):
 #     }
     
     })
+    
+    #d = recommend_data()
+    
     output=[]
     count=1
     for item in recipts['hits']['hits']:
@@ -61,6 +70,8 @@ def es_query(query, ingradient='', category='Sauces', instruction=''):
         cur[1]=content
         cur.append(str(count))
         cur.append(item['_score'])
+        
+        #cur.append(d[item['_source']["Title"]])
         output.append(cur)
         count+=1
 #         print item['_score']

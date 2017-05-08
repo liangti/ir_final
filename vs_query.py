@@ -22,12 +22,12 @@ def go_detail():
 
     #print select,(int(select)%page_len)
     return render_template("detail.html", result=search_results[int(select)-1],recommend=search_results[(int(select)%page_len)])
+
 @app.route("/detail1", methods=['POST'])
 def go_recommend():
     global search_results,cur_page,page_len
-    select=request.form['RecomendPage']
-    return render_template("detail.html", result=search_results[int(select)-1],recommend=search_results[(int(select))%page_len])
-
+    select = request.form['RecomendPage']
+    return render_template("detail.html", result=search_results[int(select)-1],recommend = search_results[(int(select))%page_len])
 
 @app.route("/")
 def search():
@@ -42,7 +42,7 @@ def results():
     #print query
     search_results, page_len = es_query(query)
     #print length
-    cur=cur_page
+    cur = cur_page
     stop=[]
     stop_flag=False
     unknown=[]
