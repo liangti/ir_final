@@ -55,7 +55,7 @@ create_body= {
 
                 },
 
-                "Ing_Name" :{
+                "Ing_List" :{
                     "type": "nested",
                     "properties":{
                     "Name":{"type": "text"},
@@ -87,9 +87,10 @@ count=0
 for item in data:
     ing_list=data[item]['Ingredients']
     ing_name=[]
+    ing_name=''
     for ing in ing_list:
         ing_name.append([ing['Name'],ing['Unit'],str(ing['Quantity']),ing['PreparationNotes']])
-    data[item]['Ing_Name']=ing_name
+    data[item]['Ing_List']=ing_name
 
 #     data[item]['Photo']='https://bigoven-res.cloudinary.com/image/upload/shit-on-a-shingle-recipe-'+item+'.jpg'
 #     print ing_name

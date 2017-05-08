@@ -11,35 +11,26 @@ def es_query(query, ingradient='', category='Sauces', instruction=''):
     "size" : 2400,
     "sort" : "_score",
     "query": {
-    "bool": {
-#       "must":{
-#               "terms": { "categories": genre}
-#               },
-#       "must":{
-#          
-#            "range": { "runtime": { 
-#                    "gt": run1,
-#                    "lte": run2
-#                    }}
-#               
-#           },
-#         "filter": [
-#                  { "range": { "runtime": { 
-#                      "gte": run1,
-#                      "lte": run2 }}},
-#                    {"match": { "categories": genre}}
-#              ],
-#        "must":[{ "match": { "categories": genre}}],
-       "should": 
-        {
-          "multi_match" : {
-            "query":      query,
-            "operator":  "or",
-            "fields":     ["Title"]
-          }
+        "bool": {
+        "should": [
+                { "match": { "Title": query }},
+                { "match": { "Category":  query }}
+                
+            ]
         }
-            
-    }
+#     "bool": {
+# #       
+#        "should": 
+#         {
+#           "multi_match" : {
+#             "query":      query,
+#             "operator":  "or",
+#             "fields":     ["Title"],
+#             "minimum_should_match": "0%" 
+#           }
+#         }
+#             
+#     }
   }
 #       "highlight" : {
 #         "fields" : {
@@ -52,8 +43,6 @@ def es_query(query, ingradient='', category='Sauces', instruction=''):
     count=1
     for item in recipts['hits']['hits']:
         #print item
-
-        #print item['_source']['PhotoUrl']
         act_min=str(item['_source']['ActiveMinutes'])+' min'
         if item['_source']['Cuisine']=='': item['_source']['Cuisine']='Unknown'
         cur=[str(count),
@@ -74,12 +63,12 @@ def es_query(query, ingradient='', category='Sauces', instruction=''):
         cur.append(item['_score'])
         output.append(cur)
         count+=1
-        #print item['_score']
-        #print item['_source']['Instructions']
+#         print item['_score']
+#         print item['_source']['Instructions']
 #         print item['_source']["Title"]
 #         print item['_source']["Category"]
 #         print item['_source']["Ing_Name"]
-        #print "*********"
+#         print "*********"
     #print len(output)
     return output,len(output)
 
@@ -87,6 +76,5 @@ def es_query(query, ingradient='', category='Sauces', instruction=''):
 # for item in movies['hits']['hits']:
 #     print item['_source']['title'],'title'
 #     
-# res = es.get(index="movie", doc_type="movie")
-# print(res)
-# es_query('sauce',instruction='oil')
+
+es_query('sauce',instruction='oil')
