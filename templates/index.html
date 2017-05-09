@@ -1,20 +1,52 @@
 
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
+<title>HomeChef</title>
+<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Wiki Search</title>
-    <!-- Bootstrap core CSS -->
-    <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+	
+	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="{{url_for('static', filename='css/style.css')}}" type="text/css" rel="stylesheet" media="all">
+
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type = "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.1.1/typeahead.bundle.js"></script>
+  
+<!-- //Custom Theme files -->
+<!-- js -->
+<script src="js/jquery-1.11.1.min.js"></script> 
+<!-- //js -->
+<!-- web-fonts -->
+<link href='//fonts.googleapis.com/css?family=Buda:300' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<!-- //web-fonts -->
+<!-- start-smooth-scrolling -->
 
-  <script src="bower_components/jqcloud2/dist/jqcloud.min.js"></script>
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){
+				event.preventDefault();
+
+		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+</script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type = "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.1.1/typeahead.bundle.js"></script>
+
+    <script src="bower_components/jqcloud2/dist/jqcloud.min.js"></script>
   <link rel="stylesheet" href="bower_components/jqcloud2/dist/jqcloud.min.css">
-
+  
 	<script type="text/javascript">
 	$(document).ready(function(){
 		// Defining the local dataset
@@ -52,8 +84,9 @@
 
 	<style type="text/css">
 	.bs-example {
+	margin-left:auto, margin-right:auto
 		font-family: sans-serif;
-		position: relative;
+		position: center;
 		margin: 100px;
 	}
 	.typeahead, .tt-query, .tt-hint {
@@ -97,293 +130,155 @@
 	.tt-suggestion p {
 		margin: 0;
 	}
-	</style>
 
-	<style type="text/css">
-      #searchbar{
+                
 
-        /*border-top:50px;*/
-        padding-top: 50px;
-      }
-      body {
-                /*padding-top: 50px;*/
-            }
-            .dropdown.dropdown-lg .dropdown-menu {
-                margin-top: -1px;
-                padding: 6px 20px;
-            }
-            .input-group-btn .btn-group {
-                display: flex !important;
-            }
-            .btn-group .btn {
-                border-radius: 0;
-                margin-left: -1px;
-            }
-            .btn-group .btn:last-child {
-                border-top-right-radius: 4px;
-                border-bottom-right-radius: 4px;
-            }
-            .btn-group .form-horizontal .btn[type="submit"] {
-              border-top-left-radius: 4px;
-              border-bottom-left-radius: 4px;
-            }
-            .form-horizontal .form-group {
-                margin-left: 0;
-                margin-right: 0;
-            }
-            .form-group .form-control:last-child {
-                border-top-left-radius: 4px;
-                border-bottom-left-radius: 4px;
-            }
+input {
+    background: transparent;
+    position: center;
+	
+	margin-left:auto, margin-right:auto
+    border: none;
+    border-radius:         23px;
+    -moz-border-radius:    23px;
+    -o-border-radius:      23px;
+    -webkit-border-radius: 23px;
+    
+    box-shadow:         inset 0 0 5px rgba(0, 0, 0, 0.1), 
+                        0 1px 0 rgba(255, 255, 255, 0.5), 
+                        inset 0 1px 2px rgba(0, 0, 0, 0.3), 
+                        0 0 40px rgba(255, 255, 255, 0.3);
+    -moz-box-shadow:    inset 0 0 5px rgba(0, 0, 0, 0.1), 
+                        0 1px 0 rgba(255, 255, 255, 0.5), 
+                        inset 0 1px 2px rgba(0, 0, 0, 0.3), 
+                        0 0 40px rgba(255, 255, 255, 0.3);
+    -o-box-shadow:      inset 0 0 5px rgba(0, 0, 0, 0.1), 
+                        0 1px 0 rgba(255, 255, 255, 0.5), 
+                        inset 0 1px 2px rgba(0, 0, 0, 0.3), 
+                        0 0 40px rgba(255, 255, 255, 0.3);
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1), 
+                        0 1px 0 rgba(255, 255, 255, 0.5), 
+                        inset 0 1px 2px rgba(0, 0, 0, 0.3), 
+                        0 0 40px rgba(255, 255, 255, 0.3);
+    
+	
+    color: #333;
+    outline: none;
+   
+}
 
-            @media screen and (min-width: 768px) {
-                #adv-search {
-                    width: 500px;
-                    margin: 0 auto;
-                }
-                .dropdown.dropdown-lg {
-                    position: static !important;
-                }
-                .dropdown.dropdown-lg .dropdown-menu {
-                    min-width: 500px;
-                }
-            }
-            /* Style the tab */
-            div.tab {
-                overflow: hidden;
-                border: 1px solid #ccc;
-                background-color: #f1f1f1;
-            }
+input:focus {
+    background: transparent;
+    background: rgba(163, 135, 106, 0.2);
+	
+	margin-left:auto, margin-right:auto
 
-            /* Style the buttons inside the tab */
-            div.tab button {
-                background-color: inherit;
-                float: left;
-                border: none;
-                outline: none;
-                cursor: pointer;
-                padding: 14px 16px;
-                transition: 0.3s;
-            }
+}
 
-            /* Change background color of buttons on hover */
-            div.tab button:hover {
-                background-color: #ddd;
-            }
-
-            /* Create an active/current tablink class */
-            div.tab button.active {
-                background-color: #ccc;
-            }
-
-            /* Style the tab content */
-            .tabcontent {
-                display: none;
-                padding: 6px 12px;
-                border: 1px solid #ccc;
-                border-top: none;
-            }
-            .navbar{
-              position: fixed;
-              width: 100%;
-            }
-            /*scroll to top*/
-            #myBtn {
-              display: none;
-              position: fixed;
-              bottom: 20px;
-              right: 30px;
-              z-index: 99;
-              border: none;
-              outline: none;
-              background-color: red;
-              color: white;
-              cursor: pointer;
-              padding: 15px;
-              border-radius: 10px;
-            }
-
-            #myBtn:hover {
-              background-color: #555;
-            }
-
-            .chosen-select {
-                width: 100%;
-            }
-
-    </style>
-	    <style type="text/css">
-		@import "http://fonts.googleapis.com/css?family=Roboto:300,400,500,700";
-
-		.container { margin-top: 20px; }
-		.mb20 { margin-bottom: 20px; }
-
-		hgroup { padding-left: 15px; border-bottom: 1px solid #ccc; }
-		hgroup h1.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; color: #2a3644; margin: 0; padding-bottom: 10px; }
-
-		.search-result .thumbnail { border-radius: 0 !important; }
-		.search-result:first-child { margin-top: 0 !important; }
-		.search-result { margin-top: 20px; }
-		.search-result .col-md-2 { border-right: 1px dotted #ccc; min-height: 140px; }
-		.search-result ul { padding-left: 0 !important; list-style: none;  }
-		.search-result ul li { font: 400 normal .85em "Roboto",Arial,Verdana,sans-serif;  line-height: 30px; }
-		.search-result ul li i { padding-right: 5px; }
-		.search-result .col-md-7 { position: relative; }
-		.search-result h3 { font: 500 normal 1.375em "Roboto",Arial,Verdana,sans-serif; margin-top: 0 !important; margin-bottom: 10px !important; }
-		.search-result h3 > a, .search-result i { color: #248dc1 !important; }
-		.search-result p { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; }
-		.search-result span.plus { position: absolute; right: 0; top: 126px; }
-		.search-result span.plus a { background-color: #248dc1; padding: 5px 5px 3px 5px; }
-		.search-result span.plus a:hover { background-color: #414141; }
-		.search-result span.plus a i { color: #fff !important; }
-		.search-result span.border { display: block; width: 97%; margin: 0 15px; border-bottom: 1px dotted #ccc; }
-
-	</style>
-    <!-- <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/js/bootstrap.min.js"></script>
-
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type='text/javascript'></script> -->
+</style>
 </head>
-
-<body role="document" style="background-image: url(http://wallpapercave.com/wp/hFSZpWV.jpg)">
-<!-- <div class="container theme-showcase" role="main"> -->
-<!-- add tab -->
-<section id="nav">
-    <div class="tab navbar">
-    <button class="tablinks" onclick="openCity(event, 'London')">Basic</button>
-    <button class="tablinks" onclick="openCity(event, 'Paris')">Advanced</button>
-    <button class="tablinks" onclick="openCity(event, 'Tokyo')">Custom</button>
-    </div>
-</section>
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-<section id="searchbar">
-<div id="London" class="tabcontent" style=display:block>
-
-
-    <h1>Wiki Search!</h1>
-    <div style="padding: 10px 100px 10px;">
-    <form class="bs-example bs-example-form" role="form" action="results" method="post">
-      <div class="input-group">
-      <span class="input-group-addon">Query</span>
-      <input type="text" class="typeahead tt-query" name="inputValue" placeholder="" autocomplete="off">
-      </div>
-    <br>
-
-      <button class="btn btn-primary" type="submit" >Search</button>
-    </form>
-    </div>
-</div>
-<div id="Paris" class="tabcontent">
-  <div id="word_cloud" class="jqcloud">
-  </div>
-
-</div>
-
-</section>
-<!-- end of tab -->
-
-     <div class="jumbotron result_num">
-      <p><small>About {{result_num}} results</small></p>
-		<table class="table table-striped table-bordered table-hover result">
-
-        <tbody>
-        {% for res in result %}
-        <tr><td>
-
-
-            <p><strong>{{res[1]}}</strong></p>
-
-
-            <section class="col-xs-12 col-sm-6 col-md-12">
-			<article class="search-result row">
-			<div class="col-xs-12 col-sm-12 col-md-3">
-				<a href="#" title={{res[0]}} class="thumbnail"><img src="{{res[3]}}" alt="image" /></a>
+<body>
+	<!-- banner -->
+	<div class="banner">
+		<div class="banner-info">
+			<div class="banner-top">
+				<div class="container">
+					<div class="banner-top-grids banner-top-left">
+						<ul class="">
+							<li><a href="#"> </a></li>
+							<li><a href="#" class=""> </a></li>
+							<li><a href="#" class=""> </a></li>
+							<li><a href="#" class=""> </a></li>
+						</ul>
+					</div>
+					<div class="banner-top-grids banner-logo">
+						<a href="index.html">
+							<img src="{{url_for('static', filename='1.png')}}" width="70" height="70" alt=""/>
+							<h1>HomeChef <span> Recipe Finder</span></h1>
+						</a>
+					</div>
+					<div class="banner-top-grids banner-top-right">
+						<p><span class=""></span>  </p>
+					</div>
+					
+				</div>
 			</div>
-			<div class="col-xs-12 col-sm-12 col-md-2">
-				<ul class="meta-search">
+			<!-- banner-text -->
+			
+				<form class="bs-example bs-example-form" role="form" action="results" method="post">
+				  <div class="input-group">
+				  <input type="text" class="typeahead tt-query" name="inputValue" placeholder="" autocomplete="off">
+				  
+				  </div>
+				  
+				  <button class="btn btn-primary" type="submit" >Search</button>
+				</form>
+				</div>
+
+			<div class="main">
+				<div class="container">
+					<nav id="menu" class="nav top-nav">		
+						<button  class="navtoogle">
+							<span class="icon-menu glyphicon glyphicon-menu-hamburger"> </span> Menu
+						</button>
+
+					</nav> 
+				</div> 
+			</div> 
+		</div>
+	</div>
+	<!-- footer -->
+
+		<div class="welcome">
+		<div class="container">
+			{% for res in result %}
+			<div class="w3ls-row alert">
+				<div class="col-md-6 welcome-left">
+					<img src="{{res[3]}}" width="200" height="200" class="img-responsive" alt=""/>
+				</div>
+				<div class="col-md-6 welcome-right">
+					 
+					<h4> {{res[1]}} </h4>
+									<ul class="meta-search">
+					{% if res[5]%}
 					<li><i class="glyphicon glyphicon-tags"></i> <span>{{res[5]}}</span></li>
 				</ul>
+				{%endif%}
+					<p>{{res[2]}} </p>
+					<form name="mydetail" action="detail" method="post"><input name="inputDetail" type="hidden" value="{{ res[0] }}">
+					<button class="btn btn-primary" type="submit" >Read more</button>
+				</div>
+				<div class="clearfix"> </div>
 			</div>
-			<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-				<h3><a href="#" title="">{{res[1]}}</a></h3>
-			<h4 class="text-primary">{{res[2]}}</h4>
+			{% endfor %}
+		</div>
 			</div>
-			<span class="clearfix borda"></span>
-		</article>
-	</section>
-
-            <p><strong>{{res[2]}}</strong></p>
-
-           <!--  <p>{{res[3]}}
-            </p> -->
-
-
-          <form name="mydetail" action="detail" method="post"><input name="inputDetail" type="hidden" value="{{ res[0] }}">
-          <button class="btn btn-primary" type="submit" >See the details</button>
-          </form>
-
-          </td></tr>
-
-          {% endfor %}
-
-        </tbody>
-      </table>
-       </div>
-
-<section id="footer">
-  <span class="copyright" dir="ltr" style = "text-align: center">© 2017 Ti Liang, Kaman Leong, Hao Wang</span>
-</section>
-
-
-<script type="text/javascript">
-      $(function() {
-        $('.pagination li a').click(function() {
-            dstpage = $(this).data('page');
-            if (dstpage == 0)
-                return;
-            $('#idCurPage').val(dstpage);
-            cur = $('#idCurPage').val();
-            $('form').submit();
-            return false;
-        });
-    });
-    // tab function
-    function openCity(evt, cityName) {
-        // Declare all variables
-        var i, tabcontent, tablinks;
-
-        // Get all elements with class="tabcontent" and hide them
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-
-        // Get all elements with class="tablinks" and remove the class "active"
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-
-        // Show the current tab, and add an "active" class to the button that opened the tab
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function() {scrollFunction()};
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.getElementById("myBtn").style.display = "block";
-        } else {
-            document.getElementById("myBtn").style.display = "none";
-        }
-    }
-
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-</script>
+			<div class="footer-bottom">
+				<p>@2017 Hao Wang, Ti Liang, KaMan Leong, All rights reserved</a></p>
+			</div>
+		</div>
+	</div>
+	<!-- //footer --> 
+	<!-- smooth-scrolling-of-move-up -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+	</script>
+	<!-- //smooth-scrolling-of-move-up --> 
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.js"></script>
 </body>
 </html>

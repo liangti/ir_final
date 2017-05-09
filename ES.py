@@ -44,8 +44,8 @@ def top_k(output,matrix):
         score.sort(key=lambda obj:obj[0])
         score.reverse()
         index=[i[1] for i in score[1:k+1]]
-        print index,'index'
-        print count,'count'
+        #print index,'index'
+        #print count,'count'
 #         print matrix[count]
         o.append(index)#13
         count+=1
@@ -64,16 +64,16 @@ def es_query(query):
             catg.extend(p[5].split())
             catg=list(set(catg))
     index=np.array([i for i in range(min(len(ings),len(catg)))])
-    print index
+    #print index
     ings_str=''
     for i in index:
-        print i
+        #print i
         ings_str=ings[i]+' '
     catg_str=''
     for i in index:
         catg_str=catg[i]+' '
-    print ings_str
-    print catg_str
+   # print ings_str
+    #print catg_str
     recipts = es.search(index="reciption2", body={
     "size" : 2400,
     "sort" : "_score",
@@ -111,7 +111,7 @@ def es_query(query):
         output.append(cur)
 #         print cur[10]
         vec=[float(i) for i in cur[10].split()]
-        print len(vec),count
+        #print len(vec),count
         matrix.append(vec)
         count+=1
 #         print item['_score']

@@ -22,7 +22,7 @@ def go_detail():
     
     #print select,(int(select)%page_len)
     recommend_list=search_results[int(select)-1][13]
-    print recommend_list
+    #print recommend_list
     recommend_result=[]
     for r in recommend_list:
         recommend_result.append(search_results[r])
