@@ -151,9 +151,15 @@
     <p id="last_modified"><span class="glyphicon glyphicon-time"></span></p>
 
     <div id="category_tag" >
+	{%if result[5]%}
       <a href="#" class="btn btn-primary">{{result[5]}}</a>
+	  {%endif%}
+	 {%if result[8]%}
       <a href="#" class="btn btn-info">{{result[8]}}</a>
+	  {%endif%}
+	  {%if result[7]%}
       <a href="#" class="btn btn-success">{{result[7]}}</a>
+	  {%endif%}
     </div>
   </div>
 <!-- menu tab -->
