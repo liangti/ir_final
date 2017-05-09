@@ -547,7 +547,7 @@ a.close {
 /*-- //welcome --*/
 /*-- slid --*/
 .slid {
-    background: url("../images/a.jpg")no-repeat center fixed;
+    background: url("../images/overlay.jpg")no-repeat center fixed;
     background-size: cover;
     min-height: 458px;
 	position:relative;

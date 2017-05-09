@@ -124,10 +124,9 @@
 	.tt-suggestion p {
 		margin: 0;
 	}
+       
 
-                
-
-input {
+.input {
     background: transparent;
     position: center;
 	
@@ -158,7 +157,7 @@ input {
    
 }
 
-input:focus {
+.input:focus {
     background: transparent;
     background: rgba(163, 135, 106, 0.2);
 	
@@ -183,10 +182,8 @@ input:focus {
 						</ul>
 					</div>
 					<div class="banner-top-grids banner-logo">
-						<a href="index.html">
 							<img src="{{url_for('static', filename='1.png')}}" width="70" height="70" alt=""/>
 							<h1>HomeChef <span> Recipe Finder</span></h1>
-						</a>
 					</div>
 					<div class="banner-top-grids banner-top-right">
 						<p><span class=""></span>  </p>
@@ -217,9 +214,12 @@ input:focus {
 			</div> 
 		</div>
 	</div>
-	<!-- footer -->
-
-		<div class="welcome">
+		{% if result_num == 0 %}
+			<div class="alert alert-danger" role="alert">
+					<strong>Nothing is found! </strong> Change a few things up and try again.
+				</div>
+		{%endif%}
+		
 		<div class="container">
 			{% for res in result %}
 			<div class="w3ls-row alert">
@@ -246,10 +246,7 @@ input:focus {
 			<div class="footer-bottom">
 				<p>@2017 Hao Wang, Ti Liang, KaMan Leong, All rights reserved</a></p>
 			</div>
-		</div>
 	</div>
-	<!-- //footer --> 
-	<!-- smooth-scrolling-of-move-up -->
 	<script type="text/javascript">
 		$(document).ready(function() {
 			/*
@@ -269,6 +266,6 @@ input:focus {
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/bootstrap.js"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.js')}}"></script>
 </body>
 </html>
