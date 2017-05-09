@@ -38,7 +38,7 @@ def cosine(list1, list2):
 
 def top_k(output,matrix):
     count=0
-    k=3
+    k=6
     for o in output:
         score=[[cosine(matrix[i],matrix[count]),i] for i in range(len(matrix))]
         score.sort(key=lambda obj:obj[0])
