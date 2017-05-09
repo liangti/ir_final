@@ -241,12 +241,34 @@
 				<div class="clearfix"> </div>
 			</div>
 			{% endfor %}
+
+		<div>
+			<ul class="pager">
+            <li class="previous">
+            <a href='javascript:my_submit("PPrev")'>Prev</a>
+            </li>
+            <li class="next">
+            <a href='javascript:my_submit("NNext")'>Next</a>
+            </li>
+        </ul>
+      </div>        
+    </div>   
 		</div>
 			</div>
 			<div class="footer-bottom">
 				<p>@2017 Hao Wang, Ti Liang, KaMan Leong, All rights reserved</a></p>
 			</div>
 	</div>
+
+		  <form action="jump_prev" name="PPrev" id="PPrev" method="post">
+              <input type="hidden", value="Prev">
+              
+          </form>
+          <form action="jump_next" name="NNext" id="NNext" method="post">
+              <input type="hidden", value="Next">
+             
+            </form>
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			/*
@@ -261,6 +283,16 @@
 			$().UItoTop({ easingType: 'easeOutQuart' });
 			
 		});
+
+
+function my_submit(input_id)
+{
+    document.getElementById(input_id).submit();
+    
+    // alert(input_id);
+    
+}
+
 	</script>
 	<!-- //smooth-scrolling-of-move-up --> 
 	<!-- Bootstrap core JavaScript

@@ -42,7 +42,7 @@ def top_k(output,matrix):
     for o in output:
         score=[[cosine(matrix[i],matrix[count]),i] for i in range(len(matrix))]
         score.sort(key=lambda obj:obj[0])
-        score.reverse()
+#         score.reverse()
         index=[i[1] for i in score[1:k+1]]
         #print index,'index'
         #print count,'count'
