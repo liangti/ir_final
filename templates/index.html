@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,125 +42,39 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type = "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.1.1/typeahead.bundle.js"></script>
 
-	<script type="text/javascript">
-	$(document).ready(function(){
-		// Defining the local dataset
-		var foods = ["beef", "potato", "tomato", "creamy", "peach", "pie", "cake", "mix", "butter", "eggs", "light", "peach", "slices", "cream", "cheese", "sugar", "vanilla", "extract", "dry", "rub", "pork", "shoulder", "paprika", "black", "pepper", "garlic", "powder", "onion", "powder", "cayenne", "pepper", "kosher", "salt", "brown", "sugar", "brunsviger", "sauce", "brun", "farin", "m\u00f8rk", "sirup", "melasse", "vanillestang", "salt", "fl\u00f8de", "sm\u00f8r", "baked", "crab", "rangoon", "garlic", "salt", "worcestershire", "sauce", "ton", "wrappers", "green", "onion", "imitation", "crab", "cream", "cheese", "kfc", "original", "recipe", "fried", "chicken", "crisco", "cooking", "oil", "beaten", "milk", "purpose", "flour", "salt", "black", "pepper", "accent", "flavor", "enhancer", "boneless", "chicken", "breasts", "leilas", "rocky", "road", "m\u00f6rk", "kvalitetschoklad", "70", "%", "dumlekola", "mini", "marshmallows", "salta", "jordn\u00f6tter", "skalade", "pistagen\u00f6tter", "crispy", "cheddar", "chicken", "boneless", "chicken", "breasts", "ritz", "crackers", "salt", "black", "pepper", "whole", "milk", "cheddar", "cheese", "dried", "parsley", "cream", "chicken", "soup", "sour", "cream", "butter", "flank", "steak", "sandwiches", "sandwiches", "flank", "steak", "sourdough", "rolls", "jack", "cheese", "marinade", "olive", "oil", "red", "wine", "vinegar", "lime", "juice", "onion", "sugar", "oregano", "garlic", "salt", "guacamole", "avocados", "lemon", "juice", "salt", "tabasco", "tomatoes", "onion", "cilantro", "teriyaki", "chicken", "soy", "sauce","sherry", "vegetable", "oil", "brown", "sugar", "fresh", "ginger", "boneless", "chicken", "breast", "halves", "optional", "garnish", "sesame", "seeds", "scallions", "chokladtryffelkaka", "kakao", "vaniljsocker","dorito", "chicken", "cheese", "casserole", "rotisserie", "chicken", "sour", "cream", "cream", "chicken", "soup", "corn", "cheddar", "cheese", "salt", "black", "pepper", "garlic", "powder", "nacho", "cheese", "doritos"];
-
-		// Constructing the suggestion engine
-		var foods = new Bloodhound({
-			datumTokenizer: Bloodhound.tokenizers.whitespace,
-			queryTokenizer: Bloodhound.tokenizers.whitespace,
-			local: foods
-		});
-
-		// Initializing the typeahead
-		$('.typeahead').typeahead({
-			hint: true,
-			highlight: true, /* Enable substring highlighting */
-			minLength: 1 /* Specify minimum characters required for showing result */
-		},
-		{
-			name: 'foods',
-			source: foods
-		});
-	});
-
-    var words = [
-    {text: "Lorem", weight: 13, link: 'http://github.com/mistic100/jQCloud'},
-    {text: "Ipsum", weight: 10.5, link: 'http://www.strangeplanet.fr'},
-    {text: "Dolor", weight: 9.4, link: 'http://piwigo.org'},
-    /* ... */
-  ];
-
-  $('#word_cloud').jQCloud(words);
-
-	</script>
-
-	<style type="text/css">
-
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 	
-	.typeahead, .tt-query, .tt-hint {
-		border: 2px solid #CCCCCC;
-		font-size: 16px; /* Set input font size */
-		height: 28px;
-		line-height: 30px;
-		outline: medium none;
-		padding: 10px 12px;
-		width: 500px;
-	}
-	.typeahead {
-		background-color: #FFFFFF;
-	}
-	.typeahead:focus {
-		border: 2px solid #0097CF;
-	}
-	.tt-query {
-		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-	}
-	.tt-hint {
-		color: #999999;
-	}
-	.tt-menu {
-		background-color: #FFFFFF;
-		border: 1px solid rgba(0, 0, 0, 0.2);
-		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-		margin-top: 12px;
-		padding: 8px 0;
-		width: 422px;
-	}
-	.tt-suggestion {
-		font-size: 22px;  /* Set suggestion dropdown font size */
-		padding: 3px 20px;
-	}
-	.tt-suggestion:hover {
-		cursor: pointer;
-		background-color: #0097CF;
-		color: #FFFFFF;
-	}
-	.tt-suggestion p {
-		margin: 0;
-	}
-       
+	<link rel="stylesheet" href="{{url_for('static', filename='src/jquery.typeahead.css')}}">
+    <script src="{{url_for('static', filename='src/jquery.typeahead.js')}}"></script>
+	
+    <style>
+        .typeahead__suggestion-label {
+            position: center;
+            top: 4px;
+            right: 12px;
+            background: #ecf5fc;
+            border:solid 1px #66afe9;
+            padding: 3px;
+            border-radius: 5px;
+			
+        }
 
-.input {
-    background: transparent;
-    position: center;
-	
-	margin-left:auto, margin-right:auto
-    border: none;
-   
-    
-    box-shadow:         inset 0 0 5px rgba(0, 0, 0, 0.1), 
-                        0 1px 0 rgba(255, 255, 255, 0.5), 
-                        inset 0 1px 2px rgba(0, 0, 0, 0.3), 
-                        0 0 40px rgba(255, 255, 255, 0.3);
-    -moz-box-shadow:    inset 0 0 5px rgba(0, 0, 0, 0.1), 
-                        0 1px 0 rgba(255, 255, 255, 0.5), 
-                        inset 0 1px 2px rgba(0, 0, 0, 0.3), 
-                        0 0 40px rgba(255, 255, 255, 0.3);
-    -o-box-shadow:      inset 0 0 5px rgba(0, 0, 0, 0.1), 
-                        0 1px 0 rgba(255, 255, 255, 0.5), 
-                        inset 0 1px 2px rgba(0, 0, 0, 0.3), 
-                        0 0 40px rgba(255, 255, 255, 0.3);
-    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1), 
-                        0 1px 0 rgba(255, 255, 255, 0.5), 
-                        inset 0 1px 2px rgba(0, 0, 0, 0.3), 
-                        0 0 40px rgba(255, 255, 255, 0.3);
-    
-	
-    color: #333;
-    outline: none;
-   
+        .typeahead__clear-suggestions {
+            margin: 1rem 0;
+			float:left;
+            cursor: pointer;
+			border-radius:8px;
+        }
+		
+		.container{
+    margin-top:30px;
 }
 
-.input:focus {
-    background: transparent;
-    background: rgba(163, 135, 106, 0.2);
-	
-	margin-left:auto, margin-right:auto
-
-}
+		.filter-col{
+			padding-left:10px;
+			padding-right:10px;
+		}
+    </style>
 
 </style>
 </head>
@@ -180,7 +93,7 @@
 						</ul>
 					</div>
 					<div class="banner-top-grids banner-logo">
-							<img src="{{url_for('static', filename='1.png')}}" width="70" height="70" alt=""/>
+							<img src="{{url_for('static', filename='1.png')}}" width="90" height="90" alt=""/>
 							<h1>HomeChef <span> Recipe Finder</span></h1>
 					</div>
 					<div class="banner-top-grids banner-top-right">
@@ -192,13 +105,118 @@
 					
 				</div>
 			</div>
-			<!-- banner-text -->
-			<div class="banner-text">
-				<form class="" role="form" action="results" method="post">
-				  <input type="text" class="typeahead form-controls" name="inputValue" placeholder="" autocomplete="off">  
-				  <button class="btn btn-primary" type="submit" >Search</button>
-				</form>
-			</div>
+			
+			<div class="banner-text" style="width: 80%; max-width: 600px; margin: 0 auto;">
+				   <form class="" role="form" action="results" method="post">
+						<div class="typeahead__container">
+							<div class="typeahead__field">
+							<span class="typeahead__query">
+								<input class="js-typeahead"
+									   name="inputValue"
+									   placeholder="search a recipe"
+									   autofocus
+									   autocomplete="off">
+								
+							</span>
+							<span class="typeahead__button">
+								<button type="submit">
+									<span class="typeahead__search-icon"></span>
+								</button>
+								
+							</span>
+						
+							</div>
+						</div>
+					</form>
+	<button type="button"
+            class="typeahead__clear-suggestions"
+            onclick="clearSuggestions();">
+        Clear Suggestions
+    </button>
+	
+</div>
+			
+	<script>
+	
+		var data = ["beef", "potato", "tomato", "creamy", "peach", "pie", "cake", "mix", "butter", "eggs", "light", "peach", "slices", "cream", "cheese", "sugar", "vanilla", "extract", "dry", "rub", "pork", "shoulder", "paprika", "black", "pepper", "garlic", "powder", "onion", "powder", "cayenne", "pepper", "kosher", "salt", "brown", "sugar", "brunsviger", "sauce", "brun", "farin", "m\u00f8rk", "sirup", "melasse", "vanillestang", "salt", "fl\u00f8de", "sm\u00f8r", "baked", "crab", "rangoon", "garlic", "salt", "worcestershire", "sauce", "ton", "wrappers", "green", "onion", "imitation", "crab", "cream", "cheese", "kfc", "original", "recipe", "fried", "chicken", "crisco", "cooking", "oil", "beaten", "milk", "purpose", "flour", "salt", "black", "pepper", "accent", "flavor", "enhancer", "boneless", "chicken", "breasts", "leilas", "rocky", "road", "m\u00f6rk", "kvalitetschoklad", "70", "%", "dumlekola", "mini", "marshmallows", "salta", "jordn\u00f6tter", "skalade", "pistagen\u00f6tter", "crispy", "cheddar", "chicken", "boneless", "chicken", "breasts", "ritz", "crackers", "salt", "black", "pepper", "whole", "milk", "cheddar", "cheese", "dried", "parsley", "cream", "chicken", "soup", "sour", "cream", "butter", "flank", "steak", "sandwiches", "sandwiches", "flank", "steak", "sourdough", "rolls", "jack", "cheese", "marinade", "olive", "oil", "red", "wine", "vinegar", "lime", "juice", "onion", "sugar", "oregano", "garlic", "salt", "guacamole", "avocados", "lemon", "juice", "salt", "tabasco", "tomatoes", "onion", "cilantro", "teriyaki", "chicken", "soy", "sauce","sherry", "vegetable", "oil", "brown", "sugar", "fresh", "ginger", "boneless", "chicken", "breast", "halves", "optional", "garnish", "sesame", "seeds", "scallions", "chokladtryffelkaka", "kakao", "vaniljsocker","dorito", "chicken", "cheese", "casserole", "rotisserie", "chicken", "sour", "cream", "cream", "chicken", "soup", "corn", "cheddar", "cheese", "salt", "black", "pepper", "garlic", "powder", "nacho", "cheese", "doritos"];
+
+ 
+        var storageKey = 'TYPEAHEAD_SUGGESTIONS',
+            storageData = JSON.parse(localStorage.getItem(storageKey)) || [];
+
+        function clearSuggestions () {
+            localStorage.removeItem(storageKey);
+            storageData = [];
+        }
+
+        typeof $.typeahead === 'function' && $.typeahead({
+            input: ".js-typeahead",
+            minLength: 1,
+            maxItem: 8,
+            maxItemPerGroup: 6,
+            order: "asc",
+            hint: true,
+            searchOnFocus: true,
+            display: ["name", "city"],
+            emptyTemplate: 'no result for {{query}}',
+            source: {
+                suggestion: {
+                    template: "{{name}} {{city}} <small class='typeahead__suggestion-label'>Suggestion</small>",
+                    minLength: 0, // Start showing suggestion when the input is focused
+                    maxLength: 3, // when 4 characters are entered, the suggestions will stop showing
+                    dynamic: true,
+                    filter: false, // Always show these suggestion regardless of what is typed
+                    data: function () {
+                        var deferred = $.Deferred();
+
+                        // setTimeout simulates a delay if you are getting the data from
+                        // a call to an API or a backend endpoint to get the user's preferences
+                        setTimeout(function () {
+
+                            deferred.resolve(storageData);
+
+                        }, 250);
+
+                        return deferred;
+                    }
+                },
+                teams: {
+                    data: data,
+                    matcher: function (item, displayKey) {
+                        var isSuggestion;
+                        for (var i = 0, ii = storageData.length; i < ii; ++i) {
+                            if (storageData[i].name === item.name) {
+                                isSuggestion = true;
+                                break;
+                            }
+                        }
+                        return isSuggestion ? undefined : true;
+
+                        // return undefined to skip to next item
+                        // return false to attempt the matching function on the next displayKey
+                        // return true to add the item to the result list
+                        // return item object to modify the item and add it to the result list
+                    }
+                }
+            },
+            callback: {
+                // onClick add the clicked item into the suggestion array inside localStorage
+                // or it could also send a request to store it in database so the user get its last searched terms
+                onClick: function (node, a, item, event) {
+                    var maxSuggestions = 3;
+
+                    if (storageData.length >= maxSuggestions) {
+                        storageData.pop();
+                    }
+                    storageData.unshift(item);
+
+                    localStorage.setItem(storageKey, JSON.stringify(storageData));
+                }
+            },
+            debug: true
+        });
+
+    </script>
 				
 			<div class="main">
 				<div class="container">

@@ -29,17 +29,13 @@ def go_detail():
 def search():
     return render_template('index.html')
 
+#search result page
 @app.route("/results", methods=['POST'])
 def results():
     global search_results,cur_page,page_len,stop_dict
-#     try:
     query = request.form['inputValue']
-    #print query, starring, genre
-    #print query
-    cate = ""
-    ing = ""
-    search_results, page_len = search_recipe(query, cate, ing)
-    #print length
+    
+    search_results, page_len = search_recipe(query)
     cur = cur_page
     stop=[]
     stop_flag=False
@@ -52,9 +48,8 @@ def results():
             stop.append(q)
     page=[i for i in range(len(search_results)//10)]
     return render_template('index.html',result=search_results[cur*10:(cur+1)*10], result_num=page_len, result_page=page[cur*10:(cur+1)*10], cur=cur, stop_flag=stop_flag,stop_word=stop,unknown_flag=unknown_flag, unknown=unknown)
-#     except KeyError:
-#         return '"Problem"'
 
+#pagination
 @app.route("/jump_prev", methods=['POST'])
 def jump_prev():
     #print "yes"

@@ -49,12 +49,12 @@ def top_k(output,matrix):
     return output
 
 #recommendation module
-def search_recipe(query, cate, ing):
+def search_recipe(query):
 
     #search the recipes that meet all conditions
     #cate = categories
     #ing = ingredient
-    pre = pre_query(query, cate, ing)
+    pre = pre_query(query)
          
     ings=[]
     catg=[]
@@ -123,7 +123,7 @@ def search_recipe(query, cate, ing):
          
     return output, len(output)
 
-def pre_query(query, cate, ing):
+def pre_query(query):
     
        body = {"query":{
             "bool":{
@@ -135,9 +135,9 @@ def pre_query(query, cate, ing):
                             "fields" : ["Title", "Cuisine"]
                     }}],
             "should" : [
-                    {"match" : {"Category" : cate}},
+                    {"match" : {"Category" : query}},
                     {"match":{
-                            "Ing_Name" : ing}}
+                            "Ing_Name" : query}}
                     ]
             }}
             }
@@ -148,7 +148,7 @@ def pre_query(query, cate, ing):
 
        count=1
        for item in res["hits"]["hits"]:
-           cur = wrapped(item,count)
+           cur = wrapped(item, count)
            result.append(cur)
            count+=1
 
