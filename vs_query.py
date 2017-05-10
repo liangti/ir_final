@@ -1,8 +1,5 @@
-'''
-Created on Feb 18, 2017
+#This module is for web interative
 
-@author: uuisafresh
-'''
 from flask import *
 from ES import *
 import nltk
@@ -14,14 +11,13 @@ global search_results,cur_page,page_len
 global dict_index, dict_json, result_index
 global stop_dict
 
-
 @app.route("/detail", methods=['POST'])
 def go_detail():
     global search_results,cur_page,page_len
     select = request.form['inputDetail']
     
     #print select,(int(select)%page_len)
-    recommend_list=search_results[int(select)-1][13]
+    recommend_list = search_results[int(select)-1][12]
     #print recommend_list
     recommend_result=[]
     for r in recommend_list:
@@ -40,7 +36,9 @@ def results():
     query = request.form['inputValue']
     #print query, starring, genre
     #print query
-    search_results, page_len = es_query(query)
+    cate = ""
+    ing = ""
+    search_results, page_len = search_recipe(query, cate, ing)
     #print length
     cur = cur_page
     stop=[]
