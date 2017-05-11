@@ -132,12 +132,13 @@ def pre_query(query):
     
        body = {"query":{
             "bool":{
-            "must":[{
+            "should":[{
                     "multi_match" : {
                             "query": query,
                             "operator":"and",
                             "type":"cross_fields",
-                            "fields" : ["Title", "Cuisine"]
+                            "fields" : ["Title", "Cuisine"],
+                             "boost": 2
                     }}],
             "should" : [
                     {"match" : {"Category" : query}},
