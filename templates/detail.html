@@ -207,6 +207,7 @@
       <div class="item  active">
         <div class="row">
           <div class="col-md-4">
+            {% if recommends[0] %}
             <div class="thumbnail" id="mini_pic_rec_out">
             <form name="mydetail" action="detail" method="post" class="mini_pic_rec">
 
@@ -219,8 +220,12 @@
                </div>
             </form>
             </div>
+            {% else %}
+
+            {% endif %}
           </div>
           <div class="col-md-4">
+            {% if recommends[1] %}
             <div class="thumbnail" id="mini_pic_rec_out">
             <form name="mydetail" action="detail" method="post" class="mini_pic_rec">
 
@@ -233,66 +238,91 @@
                </div>
             </form>
             </div>
+            {% else %}
+
+            {% endif %}
           </div>
           <div class="col-md-4">
+            {% if recommends[2] %}
             <div class="thumbnail" id="mini_pic_rec_out">
             <form name="mydetail" action="detail" method="post" class="mini_pic_rec">
 
               <div id="click_id">
+
               <input name="inputDetail" type="hidden" value="{{recommends[2][0]}}" >
               <center>
               <img alt="" src="{{recommends[2][3]}}"></a>
               <h5>{{recommends[2][1]}}</h5>
-            </center>
-               </div>
+              </center>
+
+              </div>
             </form>
             </div>
+            {% else %}
+
+            {% endif %}
           </div>
         </div>
       </div>
       <div class="item">
         <div class="row">
           <div class="col-md-4">
+            {% if recommends[3] %}
             <div class="thumbnail" id="mini_pic_rec_out">
             <form name="mydetail" action="detail" method="post" class="mini_pic_rec">
 
               <div id="click_id">
+
               <input name="inputDetail" type="hidden" value="{{recommends[3][0]}}" >
               <center>
               <img alt="" src="{{recommends[3][3]}}"></a>
               <h5>{{recommends[3][1]}}</h5>
-            </center>
-               </div>
+              </center>
+
+              </div>
             </form>
             </div>
+            {% else %}
+
+            {% endif %}
           </div>
           <div class="col-md-4">
+            {% if recommends[4] %}
             <div class="thumbnail" id="mini_pic_rec_out">
             <form name="mydetail" action="detail" method="post" class="mini_pic_rec">
 
               <div id="click_id">
+
               <input name="inputDetail" type="hidden" value="{{recommends[4][0]}}" >
               <center>
               <img alt="" src="{{recommends[4][3]}}"></a>
               <h5>{{recommends[4][1]}}</h5>
-            </center>
-               </div>
+              </center>
+
+              </div>
             </form>
             </div>
+            {% else %}
+            {% endif %}
           </div>
           <div class="col-md-4">
+            {% if recommends[5] %}
             <div class="thumbnail" id="mini_pic_rec_out">
             <form name="mydetail" action="detail" method="post" class="mini_pic_rec">
 
               <div id="click_id">
+
               <input name="inputDetail" type="hidden" value="{{recommends[5][0]}}" >
               <center>
               <img alt="" src="{{recommends[5][3]}}"></a>
               <h5>{{recommends[5][1]}}</h5>
-            </center>
+              </center>
+
                </div>
             </form>
             </div>
+            {% else %}
+            {% endif %}
           </div>
         </div>
       </div>

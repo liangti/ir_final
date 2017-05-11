@@ -6,8 +6,8 @@
 <head>
 <title>HomeChef</title>
 <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
 <link href="{{url_for('static', filename='css/style.css')}}" type="text/css" rel="stylesheet" media="all">
@@ -19,10 +19,10 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type = "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.1.1/typeahead.bundle.js"></script>
-  
+
 <!-- //Custom Theme files -->
 <!-- js -->
-<script src="js/jquery-1.11.1.min.js"></script> 
+<script src="js/jquery-1.11.1.min.js"></script>
 <!-- //js -->
 <!-- web-fonts -->
 <link href='//fonts.googleapis.com/css?family=Buda:300' rel='stylesheet' type='text/css'>
@@ -46,10 +46,10 @@
 	<script type = "text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.1.1/typeahead.bundle.js"></script>
 
     <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-	
+
 	<link rel="stylesheet" href="{{url_for('static', filename='src/jquery.typeahead.css')}}">
     <script src="{{url_for('static', filename='src/jquery.typeahead.js')}}"></script>
-	
+
     <style>
         .typeahead__suggestion-label {
             position: center;
@@ -59,7 +59,7 @@
             border:solid 1px #66afe9;
             padding: 3px;
             border-radius: 5px;
-			
+
         }
 
         .typeahead__clear-suggestions {
@@ -68,7 +68,7 @@
             cursor: pointer;
 			border-radius:8px;
         }
-		
+
 		.container{
     margin-top:30px;
 }
@@ -105,10 +105,10 @@
 					<div class="banner-top-grids banner-top-right">
 						<p><span class=""></span>  </p>
 					</div>
-					
+
 				</div>
 			</div>
-			
+
 			<div class="banner-text" style="width: 80%; max-width: 600px; margin: 0 auto;">
 				   <form class="" role="form" action="results" method="post">
 						<div class="typeahead__container">
@@ -119,15 +119,15 @@
 									   placeholder="search a recipe"
 									   autofocus
 									   autocomplete="off">
-								
+
 							</span>
 							<span class="typeahead__button">
 								<button type="submit">
 									<span class="typeahead__search-icon"></span>
 								</button>
-								
+
 							</span>
-						
+
 							</div>
 						</div>
 					</form>
@@ -136,14 +136,14 @@
             onclick="clearSuggestions();">
         Clear Suggestions
     </button>
-	
+
 </div>
-			
+
 	<script>
-	
+
 		var data = ["beef", "potato", "tomato", "creamy", "peach", "pie", "cake", "mix", "butter", "eggs", "light", "peach", "slices", "cream", "cheese", "sugar", "vanilla", "extract", "dry", "rub", "pork", "shoulder", "paprika", "black", "pepper", "garlic", "powder", "onion", "powder", "cayenne", "pepper", "kosher", "salt", "brown", "sugar", "brunsviger", "sauce", "brun", "farin", "m\u00f8rk", "sirup", "melasse", "vanillestang", "salt", "fl\u00f8de", "sm\u00f8r", "baked", "crab", "rangoon", "garlic", "salt", "worcestershire", "sauce", "ton", "wrappers", "green", "onion", "imitation", "crab", "cream", "cheese", "kfc", "original", "recipe", "fried", "chicken", "crisco", "cooking", "oil", "beaten", "milk", "purpose", "flour", "salt", "black", "pepper", "accent", "flavor", "enhancer", "boneless", "chicken", "breasts", "leilas", "rocky", "road", "m\u00f6rk", "kvalitetschoklad", "70", "%", "dumlekola", "mini", "marshmallows", "salta", "jordn\u00f6tter", "skalade", "pistagen\u00f6tter", "crispy", "cheddar", "chicken", "boneless", "chicken", "breasts", "ritz", "crackers", "salt", "black", "pepper", "whole", "milk", "cheddar", "cheese", "dried", "parsley", "cream", "chicken", "soup", "sour", "cream", "butter", "flank", "steak", "sandwiches", "sandwiches", "flank", "steak", "sourdough", "rolls", "jack", "cheese", "marinade", "olive", "oil", "red", "wine", "vinegar", "lime", "juice", "onion", "sugar", "oregano", "garlic", "salt", "guacamole", "avocados", "lemon", "juice", "salt", "tabasco", "tomatoes", "onion", "cilantro", "teriyaki", "chicken", "soy", "sauce","sherry", "vegetable", "oil", "brown", "sugar", "fresh", "ginger", "boneless", "chicken", "breast", "halves", "optional", "garnish", "sesame", "seeds", "scallions", "chokladtryffelkaka", "kakao", "vaniljsocker","dorito", "chicken", "cheese", "casserole", "rotisserie", "chicken", "sour", "cream", "cream", "chicken", "soup", "corn", "cheddar", "cheese", "salt", "black", "pepper", "garlic", "powder", "nacho", "cheese", "doritos"];
 
- 
+
         var storageKey = 'TYPEAHEAD_SUGGESTIONS',
             storageData = JSON.parse(localStorage.getItem(storageKey)) || [];
 
@@ -220,17 +220,17 @@
         });
 
     </script>
-				
+
 			<div class="main">
 				<div class="container">
-					<nav id="menu" class="nav top-nav">		
+					<nav id="menu" class="nav top-nav">
 						<button  class="navtoogle">
 							<span class="icon-menu glyphicon glyphicon-menu-hamburger"> </span> Menu
 						</button>
 
-					</nav> 
-				</div> 
-			</div> 
+					</nav>
+				</div>
+			</div>
 		</div>
 	</div>
 	<footer
@@ -239,8 +239,8 @@
 					<strong>Nothing is found! </strong> Change a few things up and try again.
 				</div>
 		{%endif%}
-	
-		
+
+
 		<body background="{{url_for('static', filename='images/overlay.png')}}">
 		<div class="container" >
 
@@ -273,8 +273,8 @@
             <a href='javascript:my_submit("NNext")'>Next</a>
             </li>
         </ul>
-      </div>        
-    </div>   
+      </div>
+    </div>
 		</div>
 			</div>
 			<div class="footer-bottom">
@@ -284,11 +284,11 @@
 
 		  <form action="jump_prev" name="PPrev" id="PPrev" method="post">
               <input type="hidden", value="Prev">
-              
+
           </form>
           <form action="jump_next" name="NNext" id="NNext" method="post">
               <input type="hidden", value="Next">
-             
+
             </form>
 
 	<script type="text/javascript">
@@ -298,25 +298,25 @@
 				containerID: 'toTop', // fading element id
 				containerHoverID: 'toTopHover', // fading element hover id
 				scrollSpeed: 1200,
-				easingType: 'linear' 
+				easingType: 'linear'
 			};
 			*/
-			
+
 			$().UItoTop({ easingType: 'easeOutQuart' });
-			
+
 		});
 
 
 function my_submit(input_id)
 {
     document.getElementById(input_id).submit();
-    
+
     // alert(input_id);
-    
+
 }
 
 	</script>
-	<!-- //smooth-scrolling-of-move-up --> 
+	<!-- //smooth-scrolling-of-move-up -->
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
