@@ -1,7 +1,7 @@
 '''
 Created on Apr 30, 2017
 
-@author: Ti Liang, KaMan Leong
+@author: Ti Liang, KaMan Leong, Hao Wang
 '''
 from elasticsearch import Elasticsearch
 from elasticsearch import helpers
@@ -14,12 +14,12 @@ create_body= {
   "settings": {
     "analysis": {
       "analyzer": {
-        "my_custom_analyzer": { 
+        "my_custom_analyzer": {
           "type" :      "custom",
           "tokenizer": "standard",
           "filter": ["lowercase", stop_word, "porter_stem"]
         }
-      }           
+      }
     }},
 "mappings":{
         "food-type": {
@@ -38,7 +38,7 @@ create_body= {
                             "Quantity":{"type": "float"},
                             "PreparationNotes":{"type": "text"}
                             },
-                        },          
+                        },
                         "Ing_Name" :{"type" : "text", "index_name" : "Ing_Name"},
                         "Category": {"type": "string"},
                         "Cusine": {"type": "string"},
@@ -79,16 +79,16 @@ for key, value in data.items():
             parsed_data.append(dic)
 
 helpers.bulk(es, parsed_data, index='corpus', doc_type="food_type")
-                        
+
 ##n2i=dict()
 ##count=0
 ##for item in data:
 ##    ings=data[item]['Ingredients']
 ##    for ing in ings:
-##        if not ing['Name'] in n2i: 
+##        if not ing['Name'] in n2i:
 ##            n2i[ing['Name']]=count
 ##            count+=1
-##     
+##
 ##print len(n2i),'len_dictionary'
 ##count=0
 ##matrix=np.zeros((len(data),len(n2i)))
