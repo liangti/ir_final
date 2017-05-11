@@ -1,3 +1,8 @@
+'''
+Created on Apr 30, 2017
+
+@author: Ti Liang, KaMan Leong
+'''
 from elasticsearch import Elasticsearch
 from elasticsearch import helpers
 import numpy as np
