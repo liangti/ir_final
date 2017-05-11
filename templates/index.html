@@ -1,3 +1,8 @@
+'''
+Created on Apr 30, 2017
+
+@author: KaMan Leong
+'''
 <!DOCTYPE html>
 <html>
 <head>
@@ -236,9 +241,12 @@
 					<strong>Nothing is found! </strong> Change a few things up and try again.
 				</div>
 		{%endif%}
+	
 		
 		<body background="{{url_for('static', filename='images/overlay.png')}}">
 		<div class="container" >
+		
+		
 			{% for res in result %}
 			<div class="w3ls-row alert">
 				<div class="col-md-6 welcome-left">
