@@ -14,7 +14,7 @@ es = Elasticsearch()
 
 #output wrapper
 def wrapped(item,count):
-    
+
     act_min = str(item['_source']["ActiveMinutes"])+' min(s)'
     if item['_source']["Cuisine"]=='': item['_source']["Cuisine"]='Unknown'
     cur=[str(count), #0
@@ -42,7 +42,7 @@ def cosine(list1, list2):
 
 #output top k results with the highest cosine score
 def top_k(output,matrix):
-         
+
     count=0
     k=6
     for o in output:
@@ -51,6 +51,8 @@ def top_k(output,matrix):
         index=[i[1] for i in score[1:k+1]]
         o.append(index)
         count+=1
+    print "================"
+    print count
     return output
 
 #recommendation module
@@ -60,10 +62,10 @@ def search_recipe(query):
     #cate = categories
     #ing = ingredient
     pre = pre_query(query)
-         
+
     ings=[]
     catg=[]
-         
+
     for p in pre:
         for e in p[9]:
             ings += e.split()
@@ -73,7 +75,7 @@ def search_recipe(query):
         else:
             catg.extend(p[5].split())
             catg = list(set(catg))
-         
+
     index=np.array([i for i in range(min(len(ings),len(catg)))])
     #print index
     ings_str=''
@@ -83,7 +85,7 @@ def search_recipe(query):
     catg_str=''
     for i in index:
         catg_str=catg[i]+' '
-         
+
     #search other recipes related to current recipe
     #e.g. sharing the same ingredients and keywords
     recipts = es.search(index='corpus', body={
@@ -92,17 +94,17 @@ def search_recipe(query):
     "query": {
         "bool": {
         "should": [
-               { "match": { 
+               { "match": {
             "Title":  {
               "query": query,
               "boost": 2
         }}},
-        { "match": { 
+        { "match": {
             "Category":  {
               "query": catg_str,
               "boost": 2
         }}},
-        { "match": { 
+        { "match": {
             "Ing_Name":  {
               "query": ings_str,
               "boost": 2
@@ -111,11 +113,11 @@ def search_recipe(query):
         }
 
   }
-    })   
+    })
     output=[]
     count=1
     matrix=[]
-         
+
     for item in recipts['hits']['hits']:
         cur=wrapped(item,count)
         output.append(cur)
@@ -125,11 +127,11 @@ def search_recipe(query):
 
     #calculate the cosine scores of the results
     output = top_k(output, matrix)
-         
+
     return output, len(output)
 
 def pre_query(query):
-    
+
        body = {"query":{
             "bool":{
             "must":[{
@@ -146,8 +148,8 @@ def pre_query(query):
                     ]
             }}
             }
-                        
-    
+
+
        res = es.search(index="corpus", body = body)
        result = []
 
@@ -160,30 +162,30 @@ def pre_query(query):
        return result
 
 
-#first version of codes  
+#first version of codes
 #recipts = es.search(index="reciption2", body={
-        
+
 ##    "size" : 2400,
 ##    "sort" : "_score",
 ##    "query": {
 ##        "bool": {
 ##        "should": [
-##               { "match": { 
+##               { "match": {
 ##            "Title":  {
 ##              "query": query,
 ##              "boost": 2
 ##        }}},
-##        { "match": { 
+##        { "match": {
 ##            "Category":  {
 ##              "query": query,
 ##              "boost": 2
 ##        }}},
-##        { "match": { 
+##        { "match": {
 ##            "Ing_Name":  {
 ##              "query": query,
 ##              "boost": 2
 ##        }}}
-##       
+##
 ##            ]
 ##        }
 ##
@@ -193,7 +195,7 @@ def pre_query(query):
 ##    count=1
 ##    for item in recipts['hits']['hits']:
 ##        #print item
-##        
+##
 ##        cur=wrapped(item,count)
 ##        #cur.append(d[item['_source']["Title"]])
 ##        output.append(cur)
@@ -207,8 +209,7 @@ def pre_query(query):
 ##    #print len(output)
 ##    return output
 
- 
+
 # for item in movies['hits']['hits']:
 #     print item['_source']['title'],'title'
-#     
-
+#
