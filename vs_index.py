@@ -46,7 +46,7 @@ create_body= {
 }
 
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
-#es.indices.delete(index='corpus')
+es.indices.delete(index='corpus')
 es.indices.create(index='corpus', ignore=400, body=create_body)
 
 with open("data_sample.json", 'r') as file:
